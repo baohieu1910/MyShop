@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A420DCF32B8F7D0300CD7496 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420DCF22B8F7D0300CD7496 /* UserListViewModel.swift */; };
+		A420DCF52B8F7D1A00CD7496 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420DCF42B8F7D1A00CD7496 /* CoreDataManager.swift */; };
+		A420DCF82B8F81E900CD7496 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420DCF62B8F81E900CD7496 /* User+CoreDataClass.swift */; };
+		A420DCF92B8F81E900CD7496 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420DCF72B8F81E900CD7496 /* User+CoreDataProperties.swift */; };
 		A4257ED82B8F7817003FDC25 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4257ED62B8F7817003FDC25 /* DataModel.xcdatamodeld */; };
-		A4257EDB2B8F788D003FDC25 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4257ED92B8F788D003FDC25 /* User+CoreDataClass.swift */; };
-		A4257EDC2B8F788D003FDC25 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4257EDA2B8F788D003FDC25 /* User+CoreDataProperties.swift */; };
 		A47E31C32B8F160500DB8CEF /* MyShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31C22B8F160500DB8CEF /* MyShopApp.swift */; };
 		A47E31C52B8F160500DB8CEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31C42B8F160500DB8CEF /* ContentView.swift */; };
 		A47E31C72B8F160700DB8CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47E31C62B8F160700DB8CEF /* Assets.xcassets */; };
@@ -25,9 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A420DCF22B8F7D0300CD7496 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		A420DCF42B8F7D1A00CD7496 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A420DCF62B8F81E900CD7496 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A420DCF72B8F81E900CD7496 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A4257ED72B8F7817003FDC25 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		A4257ED92B8F788D003FDC25 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "MyShop/Models/User/User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A4257EDA2B8F788D003FDC25 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "MyShop/Models/User/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A47E31BF2B8F160500DB8CEF /* MyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47E31C22B8F160500DB8CEF /* MyShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShopApp.swift; sourceTree = "<group>"; };
 		A47E31C42B8F160500DB8CEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,11 +58,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A420DCF12B8F7A7400CD7496 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A420DCF42B8F7D1A00CD7496 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		A47E31B62B8F160500DB8CEF = {
 			isa = PBXGroup;
 			children = (
-				A4257ED92B8F788D003FDC25 /* User+CoreDataClass.swift */,
-				A4257EDA2B8F788D003FDC25 /* User+CoreDataProperties.swift */,
+				A420DCF62B8F81E900CD7496 /* User+CoreDataClass.swift */,
+				A420DCF72B8F81E900CD7496 /* User+CoreDataProperties.swift */,
 				A47E31C12B8F160500DB8CEF /* MyShop */,
 				A47E31C02B8F160500DB8CEF /* Products */,
 			);
@@ -117,6 +129,7 @@
 		A47E31D22B8F161200DB8CEF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A420DCF22B8F7D0300CD7496 /* UserListViewModel.swift */,
 				A47E31D92B8F5C0200DB8CEF /* OrdersListViewModel.swift */,
 			);
 			path = ViewModels;
@@ -125,6 +138,7 @@
 		A47E31D32B8F161300DB8CEF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A420DCF12B8F7A7400CD7496 /* Manager */,
 				A47E31D62B8F5BB900DB8CEF /* Extensions */,
 			);
 			path = Helpers;
@@ -228,15 +242,17 @@
 			files = (
 				A4257ED82B8F7817003FDC25 /* DataModel.xcdatamodeld in Sources */,
 				A47E31DA2B8F5C0300DB8CEF /* OrdersListViewModel.swift in Sources */,
-				A4257EDB2B8F788D003FDC25 /* User+CoreDataClass.swift in Sources */,
+				A420DCF52B8F7D1A00CD7496 /* CoreDataManager.swift in Sources */,
 				A47E31E62B8F630800DB8CEF /* RegisterView.swift in Sources */,
 				A47E31DE2B8F5CE900DB8CEF /* HomeView.swift in Sources */,
+				A420DCF82B8F81E900CD7496 /* User+CoreDataClass.swift in Sources */,
 				A47E31D52B8F560C00DB8CEF /* Order.swift in Sources */,
 				A47E31E42B8F619000DB8CEF /* LoginView.swift in Sources */,
 				A47E31C52B8F160500DB8CEF /* ContentView.swift in Sources */,
 				A47E31C32B8F160500DB8CEF /* MyShopApp.swift in Sources */,
+				A420DCF32B8F7D0300CD7496 /* UserListViewModel.swift in Sources */,
 				A47E31D82B8F5BC800DB8CEF /* UIScreen.swift in Sources */,
-				A4257EDC2B8F788D003FDC25 /* User+CoreDataProperties.swift in Sources */,
+				A420DCF92B8F81E900CD7496 /* User+CoreDataProperties.swift in Sources */,
 				A47E31DC2B8F5CDB00DB8CEF /* OrderListView.swift in Sources */,
 				A47E31E12B8F5DAA00DB8CEF /* OrderCardView.swift in Sources */,
 			);

@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var userListViewModel = UserListViewModel()
+    
     @State var username = ""
     @State var password = ""
     
+    @State var loginError = false
     var body: some View {
         VStack {
             Text("Login to your account")
@@ -50,12 +53,34 @@ struct LoginView: View {
                 
             }
             
+            Button {
+                if userListViewModel.checkLogin(username: username, password: password) {
+//                    userManager.login(username: username, password: password)
+                    
+                } else {
+                    loginError.toggle()
+                }
+                
+            } label: {
+                Text("Login")
+                    .padding(.vertical)
+                    .padding(.horizontal, UIScreen.screenWidth / 3)
+                    .font(.system(size: 20))
+                    .foregroundColor(.white)
+                    .background(.orange)
+                    .cornerRadius(10)
+            }
+            .alert("Incorrect username or password. Please try again.", isPresented: $loginError) {
+                Button("OK", role: .cancel) {
+                    
+                }
+            }
+            
             HStack {
                 Text("Already have an account?")
                 
                 NavigationLink {
-//                    RegisterView(userListViewModel: userListViewModel)
-                    RegisterView()
+                    RegisterView(userListViewModel: userListViewModel)
                 } label: {
                     Text("Sign up")
                         .foregroundColor(.blue)
