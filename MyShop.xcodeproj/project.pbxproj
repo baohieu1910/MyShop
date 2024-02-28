@@ -11,6 +11,12 @@
 		A47E31C52B8F160500DB8CEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31C42B8F160500DB8CEF /* ContentView.swift */; };
 		A47E31C72B8F160700DB8CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47E31C62B8F160700DB8CEF /* Assets.xcassets */; };
 		A47E31CA2B8F160700DB8CEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47E31C92B8F160700DB8CEF /* Preview Assets.xcassets */; };
+		A47E31D52B8F560C00DB8CEF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31D42B8F560C00DB8CEF /* Order.swift */; };
+		A47E31D82B8F5BC800DB8CEF /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31D72B8F5BC800DB8CEF /* UIScreen.swift */; };
+		A47E31DA2B8F5C0300DB8CEF /* OrdersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31D92B8F5C0200DB8CEF /* OrdersListViewModel.swift */; };
+		A47E31DC2B8F5CDB00DB8CEF /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31DB2B8F5CDB00DB8CEF /* OrderListView.swift */; };
+		A47E31DE2B8F5CE900DB8CEF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31DD2B8F5CE900DB8CEF /* HomeView.swift */; };
+		A47E31E12B8F5DAA00DB8CEF /* OrderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31E02B8F5DAA00DB8CEF /* OrderCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		A47E31C42B8F160500DB8CEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A47E31C62B8F160700DB8CEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47E31C92B8F160700DB8CEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A47E31D42B8F560C00DB8CEF /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		A47E31D72B8F5BC800DB8CEF /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		A47E31D92B8F5C0200DB8CEF /* OrdersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListViewModel.swift; sourceTree = "<group>"; };
+		A47E31DB2B8F5CDB00DB8CEF /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		A47E31DD2B8F5CE900DB8CEF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A47E31E02B8F5DAA00DB8CEF /* OrderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				A47E31C22B8F160500DB8CEF /* MyShopApp.swift */,
-				A47E31C42B8F160500DB8CEF /* ContentView.swift */,
+				A47E31D32B8F161300DB8CEF /* Helpers */,
+				A47E31D22B8F161200DB8CEF /* ViewModels */,
+				A47E31D12B8F161000DB8CEF /* Models */,
+				A47E31D02B8F160E00DB8CEF /* Views */,
 				A47E31C62B8F160700DB8CEF /* Assets.xcassets */,
 				A47E31C82B8F160700DB8CEF /* Preview Content */,
 			);
@@ -65,6 +80,57 @@
 				A47E31C92B8F160700DB8CEF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A47E31D02B8F160E00DB8CEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A47E31C42B8F160500DB8CEF /* ContentView.swift */,
+				A47E31DD2B8F5CE900DB8CEF /* HomeView.swift */,
+				A47E31DF2B8F5D9400DB8CEF /* Order */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A47E31D12B8F161000DB8CEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A47E31D42B8F560C00DB8CEF /* Order.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A47E31D22B8F161200DB8CEF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A47E31D92B8F5C0200DB8CEF /* OrdersListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A47E31D32B8F161300DB8CEF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A47E31D62B8F5BB900DB8CEF /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A47E31D62B8F5BB900DB8CEF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A47E31D72B8F5BC800DB8CEF /* UIScreen.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A47E31DF2B8F5D9400DB8CEF /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				A47E31DB2B8F5CDB00DB8CEF /* OrderListView.swift */,
+				A47E31E02B8F5DAA00DB8CEF /* OrderCardView.swift */,
+			);
+			path = Order;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +203,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47E31DA2B8F5C0300DB8CEF /* OrdersListViewModel.swift in Sources */,
+				A47E31DE2B8F5CE900DB8CEF /* HomeView.swift in Sources */,
+				A47E31D52B8F560C00DB8CEF /* Order.swift in Sources */,
 				A47E31C52B8F160500DB8CEF /* ContentView.swift in Sources */,
 				A47E31C32B8F160500DB8CEF /* MyShopApp.swift in Sources */,
+				A47E31D82B8F5BC800DB8CEF /* UIScreen.swift in Sources */,
+				A47E31DC2B8F5CDB00DB8CEF /* OrderListView.swift in Sources */,
+				A47E31E12B8F5DAA00DB8CEF /* OrderCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +267,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +321,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -275,6 +347,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +377,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
