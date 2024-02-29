@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var userListViewModel = UserListViewModel()
+    @ObservedObject var userManager = UserManager.shared
     
     @State var username = ""
     @State var password = ""
@@ -55,7 +56,7 @@ struct LoginView: View {
             
             Button {
                 if userListViewModel.checkLogin(username: username, password: password) {
-//                    userManager.login(username: username, password: password)
+                    userManager.login(username: username, password: password)
                     
                 } else {
                     loginError.toggle()

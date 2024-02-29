@@ -21,7 +21,7 @@ struct ContentView: View {
                         Label("Cart", systemImage: "cart.fill")
                     }
                 
-                LoginView()
+                UserView()
                     .tabItem {
                         Label("User", systemImage: "person")
                     }

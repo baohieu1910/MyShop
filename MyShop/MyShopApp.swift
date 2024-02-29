@@ -13,6 +13,7 @@ struct MyShopApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.colorScheme, .light)
+                .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
         }
     }
 }

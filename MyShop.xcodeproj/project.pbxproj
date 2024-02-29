@@ -24,6 +24,8 @@
 		A47E31E12B8F5DAA00DB8CEF /* OrderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31E02B8F5DAA00DB8CEF /* OrderCardView.swift */; };
 		A47E31E42B8F619000DB8CEF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31E32B8F619000DB8CEF /* LoginView.swift */; };
 		A47E31E62B8F630800DB8CEF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31E52B8F630800DB8CEF /* RegisterView.swift */; };
+		A4FEE4A02B90425D00C87C8F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE49F2B90425D00C87C8F /* UserManager.swift */; };
+		A4FEE4A22B904DB900C87C8F /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE4A12B904DB900C87C8F /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		A47E31E02B8F5DAA00DB8CEF /* OrderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCardView.swift; sourceTree = "<group>"; };
 		A47E31E32B8F619000DB8CEF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A47E31E52B8F630800DB8CEF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A4FEE49F2B90425D00C87C8F /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		A4FEE4A12B904DB900C87C8F /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				A420DCF42B8F7D1A00CD7496 /* CoreDataManager.swift */,
+				A4FEE49F2B90425D00C87C8F /* UserManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A47E31E32B8F619000DB8CEF /* LoginView.swift */,
+				A4FEE4A12B904DB900C87C8F /* UserView.swift */,
 				A47E31E52B8F630800DB8CEF /* RegisterView.swift */,
 			);
 			path = User;
@@ -246,12 +252,14 @@
 				A47E31E62B8F630800DB8CEF /* RegisterView.swift in Sources */,
 				A47E31DE2B8F5CE900DB8CEF /* HomeView.swift in Sources */,
 				A420DCF82B8F81E900CD7496 /* User+CoreDataClass.swift in Sources */,
+				A4FEE4A02B90425D00C87C8F /* UserManager.swift in Sources */,
 				A47E31D52B8F560C00DB8CEF /* Order.swift in Sources */,
 				A47E31E42B8F619000DB8CEF /* LoginView.swift in Sources */,
 				A47E31C52B8F160500DB8CEF /* ContentView.swift in Sources */,
 				A47E31C32B8F160500DB8CEF /* MyShopApp.swift in Sources */,
 				A420DCF32B8F7D0300CD7496 /* UserListViewModel.swift in Sources */,
 				A47E31D82B8F5BC800DB8CEF /* UIScreen.swift in Sources */,
+				A4FEE4A22B904DB900C87C8F /* UserView.swift in Sources */,
 				A420DCF92B8F81E900CD7496 /* User+CoreDataProperties.swift in Sources */,
 				A47E31DC2B8F5CDB00DB8CEF /* OrderListView.swift in Sources */,
 				A47E31E12B8F5DAA00DB8CEF /* OrderCardView.swift in Sources */,
