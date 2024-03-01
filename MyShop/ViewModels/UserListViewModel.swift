@@ -10,12 +10,15 @@ import Foundation
 class UserListViewModel: ObservableObject {
     @Published var users: [User] = []
     
-//    private var bookingListViewModel = BookingListViewModel()
+    private var productListViewModel = ProductListViewModel()
     
     init() {
         getAllUsers()
     }
-    
+
+}
+
+extension UserListViewModel {
     func getAllUsers() {
         users = CoreDataManager.shared.getAllUsers()
     }

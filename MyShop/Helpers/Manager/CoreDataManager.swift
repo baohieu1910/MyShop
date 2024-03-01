@@ -49,15 +49,15 @@ extension CoreDataManager {
         }
     }
     
-//    func getAllBookings() -> [Bookings] {
-//        let request = NSFetchRequest<Bookings>(entityName: "Bookings")
-//
-//        do {
-//            return try viewContext.fetch(request)
-//        } catch {
-//            return []
-//        }
-//    }
+    func getAllProducts() -> [Product] {
+        let request = NSFetchRequest<Product>(entityName: "Product")
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
 }
 
 private extension CoreDataManager {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4150D9D2B90C58600AEC7C5 /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4150D9C2B90C58600AEC7C5 /* ExampleData.swift */; };
 		A420DCF32B8F7D0300CD7496 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420DCF22B8F7D0300CD7496 /* UserListViewModel.swift */; };
 		A420DCF52B8F7D1A00CD7496 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420DCF42B8F7D1A00CD7496 /* CoreDataManager.swift */; };
 		A420DCF82B8F81E900CD7496 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A420DCF62B8F81E900CD7496 /* User+CoreDataClass.swift */; };
@@ -24,11 +25,16 @@
 		A47E31E12B8F5DAA00DB8CEF /* OrderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31E02B8F5DAA00DB8CEF /* OrderCardView.swift */; };
 		A47E31E42B8F619000DB8CEF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31E32B8F619000DB8CEF /* LoginView.swift */; };
 		A47E31E62B8F630800DB8CEF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47E31E52B8F630800DB8CEF /* RegisterView.swift */; };
+		A4C1D9112B918C1800E72926 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C1D90F2B918C1800E72926 /* Product+CoreDataClass.swift */; };
+		A4C1D9122B918C1800E72926 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C1D9102B918C1800E72926 /* Product+CoreDataProperties.swift */; };
+		A4C1D9142B918C8B00E72926 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C1D9132B918C8B00E72926 /* ProductListViewModel.swift */; };
 		A4FEE4A02B90425D00C87C8F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE49F2B90425D00C87C8F /* UserManager.swift */; };
 		A4FEE4A22B904DB900C87C8F /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE4A12B904DB900C87C8F /* UserView.swift */; };
+		A4FEE4A42B9063F700C87C8F /* AfterLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEE4A32B9063F700C87C8F /* AfterLoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4150D9C2B90C58600AEC7C5 /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		A420DCF22B8F7D0300CD7496 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		A420DCF42B8F7D1A00CD7496 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A420DCF62B8F81E900CD7496 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -47,8 +53,12 @@
 		A47E31E02B8F5DAA00DB8CEF /* OrderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCardView.swift; sourceTree = "<group>"; };
 		A47E31E32B8F619000DB8CEF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A47E31E52B8F630800DB8CEF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A4C1D90F2B918C1800E72926 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A4C1D9102B918C1800E72926 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A4C1D9132B918C8B00E72926 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		A4FEE49F2B90425D00C87C8F /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A4FEE4A12B904DB900C87C8F /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		A4FEE4A32B9063F700C87C8F /* AfterLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterLoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,8 @@
 		A47E31B62B8F160500DB8CEF = {
 			isa = PBXGroup;
 			children = (
+				A4C1D90F2B918C1800E72926 /* Product+CoreDataClass.swift */,
+				A4C1D9102B918C1800E72926 /* Product+CoreDataProperties.swift */,
 				A420DCF62B8F81E900CD7496 /* User+CoreDataClass.swift */,
 				A420DCF72B8F81E900CD7496 /* User+CoreDataProperties.swift */,
 				A47E31C12B8F160500DB8CEF /* MyShop */,
@@ -136,6 +148,7 @@
 			children = (
 				A420DCF22B8F7D0300CD7496 /* UserListViewModel.swift */,
 				A47E31D92B8F5C0200DB8CEF /* OrdersListViewModel.swift */,
+				A4C1D9132B918C8B00E72926 /* ProductListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -143,6 +156,7 @@
 		A47E31D32B8F161300DB8CEF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A4150D9C2B90C58600AEC7C5 /* ExampleData.swift */,
 				A420DCF12B8F7A7400CD7496 /* Manager */,
 				A47E31D62B8F5BB900DB8CEF /* Extensions */,
 			);
@@ -171,6 +185,7 @@
 			children = (
 				A47E31E32B8F619000DB8CEF /* LoginView.swift */,
 				A4FEE4A12B904DB900C87C8F /* UserView.swift */,
+				A4FEE4A32B9063F700C87C8F /* AfterLoginView.swift */,
 				A47E31E52B8F630800DB8CEF /* RegisterView.swift */,
 			);
 			path = User;
@@ -246,20 +261,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C1D9142B918C8B00E72926 /* ProductListViewModel.swift in Sources */,
 				A4257ED82B8F7817003FDC25 /* DataModel.xcdatamodeld in Sources */,
 				A47E31DA2B8F5C0300DB8CEF /* OrdersListViewModel.swift in Sources */,
 				A420DCF52B8F7D1A00CD7496 /* CoreDataManager.swift in Sources */,
+				A4C1D9112B918C1800E72926 /* Product+CoreDataClass.swift in Sources */,
 				A47E31E62B8F630800DB8CEF /* RegisterView.swift in Sources */,
 				A47E31DE2B8F5CE900DB8CEF /* HomeView.swift in Sources */,
 				A420DCF82B8F81E900CD7496 /* User+CoreDataClass.swift in Sources */,
 				A4FEE4A02B90425D00C87C8F /* UserManager.swift in Sources */,
+				A4150D9D2B90C58600AEC7C5 /* ExampleData.swift in Sources */,
 				A47E31D52B8F560C00DB8CEF /* Order.swift in Sources */,
 				A47E31E42B8F619000DB8CEF /* LoginView.swift in Sources */,
 				A47E31C52B8F160500DB8CEF /* ContentView.swift in Sources */,
 				A47E31C32B8F160500DB8CEF /* MyShopApp.swift in Sources */,
+				A4FEE4A42B9063F700C87C8F /* AfterLoginView.swift in Sources */,
 				A420DCF32B8F7D0300CD7496 /* UserListViewModel.swift in Sources */,
 				A47E31D82B8F5BC800DB8CEF /* UIScreen.swift in Sources */,
 				A4FEE4A22B904DB900C87C8F /* UserView.swift in Sources */,
+				A4C1D9122B918C1800E72926 /* Product+CoreDataProperties.swift in Sources */,
 				A420DCF92B8F81E900CD7496 /* User+CoreDataProperties.swift in Sources */,
 				A47E31DC2B8F5CDB00DB8CEF /* OrderListView.swift in Sources */,
 				A47E31E12B8F5DAA00DB8CEF /* OrderCardView.swift in Sources */,
