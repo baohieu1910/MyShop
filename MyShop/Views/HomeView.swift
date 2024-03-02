@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var productListViewModel = ProductListViewModel()
+    
     var body: some View {
-        OrderListView()
+        NavigationView {
+            ProductListView(products: productListViewModel.products)
+        }
+        .onAppear {
+            productListViewModel.updateProducts()
+        }
     }
 }
 

@@ -9,10 +9,21 @@ import Foundation
 
 enum ExampleData {
     static var user: User {
-        var newUser = User(context: CoreDataManager.shared.viewContext)
+        let newUser = User(context: CoreDataManager.shared.viewContext)
         newUser.id = UUID()
         newUser.username = "BaoHieu"
         newUser.password = "123456"
         return newUser
+    }
+    
+    static var product: Product {
+        let newProduct = Product(context: CoreDataManager.shared.viewContext)
+        newProduct.id = UUID()
+        newProduct.name = "Giày Thể Thao New Balance 550 White Green BB550WT1 Màu Trắng Xanh Size 41.5"
+        newProduct.detail = ""
+        newProduct.imageName = "NB550"
+        newProduct.price = 350
+        newProduct.isSold = false
+        return newProduct
     }
 }

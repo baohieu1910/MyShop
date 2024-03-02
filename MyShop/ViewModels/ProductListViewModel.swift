@@ -36,6 +36,15 @@ extension ProductListViewModel {
         getAllProducts()
     }
     
+    func updateProducts() {
+        CoreDataManager.shared.saveContext()
+        getAllProducts()
+    }
     
+    func deleteAllProducts() {
+        for product in products {
+            CoreDataManager.shared.deleteProduct(product: product)
+        }
+    }
 }
 

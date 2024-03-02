@@ -58,6 +58,16 @@ extension CoreDataManager {
             return []
         }
     }
+    
+    func deleteProduct(product: Product) {
+        viewContext.delete(product)
+
+        do {
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 private extension CoreDataManager {

@@ -11,10 +11,12 @@ struct UserView: View {
     @ObservedObject var userManager = UserManager.shared
     
     var body: some View {
-        if let user = userManager.currentUser {
-            AfterLoginView(user: user)
-        } else {
-            LoginView()
+        NavigationView {
+            if let user = userManager.currentUser {
+                AfterLoginView(user: user)
+            } else {
+                LoginView()
+            }
         }
     }
 }

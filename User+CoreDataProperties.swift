@@ -20,6 +20,16 @@ extension User {
     @NSManaged public var password: String?
     @NSManaged public var username: String?
     @NSManaged public var products: NSSet?
+    
+    public var productsList: [Product] {
+        let productsSet = products as? Set<Product> ?? []
+        
+        return Array(productsSet)
+    }
+    
+    public var productsCount: Int {
+        return productsList.count
+    }
 
 }
 

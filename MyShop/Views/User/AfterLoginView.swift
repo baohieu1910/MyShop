@@ -36,18 +36,43 @@ struct AfterLoginView: View {
                 
                 Divider()
                 
-                HStack {
-                    Image(systemName: "list.bullet.rectangle.portrait")
-                        .font(.system(size: 20))
-                        .padding(.trailing, 10)
+                VStack {
+                    NavigationLink {
+                        MyProductView(user: user)
+                    } label: {
+                        HStack {
+                            Image(systemName: "list.bullet.rectangle.portrait")
+                                .font(.system(size: 20))
+                                .padding(.trailing, 10)
+                            
+                            Text("My product")
+                            
+                            Spacer()
+                        }
+                        .padding()
+                        .foregroundColor(.black)
+                    }
                     
-                    Text("Order history")
+                    Divider()
                     
-                    Spacer()
+                    NavigationLink {
+                        
+                    } label: {
+                        HStack {
+                            Image(systemName: "list.bullet.rectangle.portrait")
+                                .font(.system(size: 20))
+                                .padding(.trailing, 10)
+                            
+                            Text("Order history")
+                            
+                            Spacer()
+                        }
+                        .padding()
+                        .foregroundColor(.black)
+                    }
+                    
+                    Divider()
                 }
-                .padding()
-                
-                Divider()
                 
                 HStack {
                     VStack {
