@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-import SwiftUI
+
 
 extension Product {
 
@@ -19,21 +19,12 @@ extension Product {
     @NSManaged public var detail: String?
     @NSManaged public var id: UUID?
     @NSManaged public var imageData: Data?
-    @NSManaged public var quantity: Int32
     @NSManaged public var name: String?
     @NSManaged public var price: Double
+    @NSManaged public var quantity: Int32
     @NSManaged public var user: User?
+    @NSManaged public var buyer: User?
 
-    public var image: Image? {
-        guard let imageData = imageData else {
-            return nil
-        }
-        let uiImage = UIImage(data: imageData)
-        guard let uiImage = uiImage else {
-            return nil
-        }
-        return Image(uiImage: uiImage)
-    }
 }
 
 extension Product : Identifiable {
