@@ -14,27 +14,35 @@ struct AfterLoginView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                HStack {
-                    Image(systemName: "person")
-                        .font(.system(size: 50))
-                        .frame(width: UIScreen.screenWidth / 5, height: UIScreen.screenWidth / 5)
-                        .background(.orange)
-                        .cornerRadius(90)
-                        .padding()
-                    
-                    VStack(alignment: .leading) {
-                        Text("\(user.username?.uppercased() ?? "")")
-                            .font(.title)
-                        
-                        Text("Member")
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    HStack {
+                        Text("")
+                            .padding(20)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Spacer()
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .font(.system(size: 50))
+                            .foregroundColor(.orange)
+                            .frame(width: UIScreen.screenWidth / 5, height: UIScreen.screenWidth / 5)
+                            .background(.white)
+                            .cornerRadius(90)
+                            .padding()
+                        
+                        VStack(alignment: .leading) {
+                            Text("\(user.username?.uppercased() ?? "")")
+                                .font(.title)
+                            
+                            Text("Member")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(.white)
+                        
+                        Spacer()
+                    }
                 }
-                
-                Divider()
+                .background(.orange)
                 
                 VStack {
                     NavigationLink {
@@ -49,7 +57,7 @@ struct AfterLoginView: View {
                             
                             Spacer()
                         }
-                        .padding()
+                        .padding(10)
                         .foregroundColor(.black)
                     }
                     
@@ -67,7 +75,7 @@ struct AfterLoginView: View {
                             
                             Spacer()
                         }
-                        .padding()
+                        .padding(10)
                         .foregroundColor(.black)
                     }
                     
@@ -93,14 +101,13 @@ struct AfterLoginView: View {
                     }
                     .frame(width: UIScreen.screenWidth / 4)
                 }
-                .padding()
+                .padding(10)
                 .foregroundColor(.gray)
 
                 
                 Divider()
             }
-            
-            Spacer()
+            .ignoresSafeArea()
             
             Button {
                 userManager.logout()
@@ -111,11 +118,20 @@ struct AfterLoginView: View {
                     .font(.system(size: 20))
                     .foregroundColor(.white)
                     .background(.orange)
-                    .cornerRadius(10)
+                    .cornerRadius(90)
             }
         }
-        .ignoresSafeArea(.all)
-        .padding()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    Text("CardView")
+                } label: {
+                    Image(systemName: "cart")
+                        .font(.system(size: 20))
+                        .foregroundColor(.white)
+                }
+            }
+        }
         .onAppear {
             userListViewModel.updateUsers()
         }

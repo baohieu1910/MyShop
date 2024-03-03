@@ -3,7 +3,7 @@
     <entity name="Product" representedClassName="Product" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" customClassName="UIImage"/>
         <attribute name="isSold" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

@@ -19,8 +19,7 @@ struct ProductDetailView: View {
     var body: some View {
         VStack {
             ScrollView {
-                
-                Image(product.imageName ?? "N/A")
+                product.image?
                     .resizable()
                     .scaledToFit()
                     .frame(width: imageSize, height: imageSize)
@@ -62,7 +61,6 @@ struct ProductDetailView: View {
                 Divider()
                 
             }
-            
             .ignoresSafeArea()
             
             HStack(spacing: 0) {

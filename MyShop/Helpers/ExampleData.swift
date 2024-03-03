@@ -21,7 +21,7 @@ enum ExampleData {
         newProduct.id = UUID()
         newProduct.name = "Giày Thể Thao New Balance 550 White Green BB550WT1 Màu Trắng Xanh Size 41.5"
         newProduct.detail = ""
-        newProduct.imageName = "NB550"
+        newProduct.imageData = nil
         newProduct.price = 350
         newProduct.isSold = false
         return newProduct

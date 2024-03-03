@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ProductListViewModel: ObservableObject {
     @Published var products = [Product]()
@@ -21,13 +22,13 @@ extension ProductListViewModel {
         products = CoreDataManager.shared.getAllProducts()
     }
     
-    func addProduct(user: User, name: String, detail: String, imageName: String, price: Double) {
+    func addProduct(user: User, name: String, detail: String, imageData: Data, price: Double) {
         let newProduct = Product(context: CoreDataManager.shared.viewContext)
         
         newProduct.id = UUID()
         newProduct.name = name
         newProduct.detail = detail
-        newProduct.imageName = imageName
+        newProduct.imageData = imageData
         newProduct.price = price
         newProduct.isSold = false
         

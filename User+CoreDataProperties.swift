@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  MyShop
 //
-//  Created by Hieu Le on 3/1/24.
+//  Created by Hieu Le on 3/3/24.
 //
 //
 
@@ -20,7 +20,7 @@ extension User {
     @NSManaged public var password: String?
     @NSManaged public var username: String?
     @NSManaged public var products: NSSet?
-    
+
     public var productsList: [Product] {
         let productsSet = products as? Set<Product> ?? []
         
@@ -30,7 +30,6 @@ extension User {
     public var productsCount: Int {
         return productsList.count
     }
-
 }
 
 // MARK: Generated accessors for products

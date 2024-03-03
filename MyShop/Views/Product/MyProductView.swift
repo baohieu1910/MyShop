@@ -9,17 +9,17 @@ import SwiftUI
 
 struct MyProductView: View {
     @ObservedObject var productListViewModel = ProductListViewModel()
+    @ObservedObject var userListViewModel = UserListViewModel()
     let user: User
     
     var body: some View {
         VStack {
-            ProductListView(products: user.productsList)
+            ProductListView(products: userListViewModel.getUser(user: user).productsList)
             
             HStack {
                 Spacer()
                 
                 NavigationLink {
-//                    productListViewModel.addProduct(user: user, name: "Sneaker", detail: "", imageName: "NB550", price: 250)
                     AddProductView(productListViewModel: productListViewModel, user: user)
                 } label: {
                     Image(systemName: "plus")

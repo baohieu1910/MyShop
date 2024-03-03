@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var productListViewModel = ProductListViewModel()
-    
+    @State var searchKey = ""
     var body: some View {
         NavigationView {
             ProductListView(products: productListViewModel.products)
@@ -17,6 +17,7 @@ struct HomeView: View {
         .onAppear {
             productListViewModel.updateProducts()
         }
+        .searchable(text: $searchKey)
     }
 }
 

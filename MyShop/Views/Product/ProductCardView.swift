@@ -12,11 +12,12 @@ struct ProductCardView: View {
     
     var body: some View {
         VStack {
-            Image("\(product.imageName ?? "N/A")")
+            product.image?
                 .resizable()
                 .scaledToFit()
                 .frame(width: UIScreen.screenWidth / 2 - 20, height: UIScreen.screenWidth / 2 - 20)
             Text("\(product.name ?? "N/A")")
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(2)
             
             Text("$\(product.price, specifier: "%.0f")")
