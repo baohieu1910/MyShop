@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var productListViewModel = ProductListViewModel()
-    @State var searchKey = ""
+    @State private var searchKey = ""
+    
     var body: some View {
         NavigationView {
             ProductListView(products: productListViewModel.products)

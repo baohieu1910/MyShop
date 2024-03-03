@@ -19,7 +19,7 @@ extension Product {
     @NSManaged public var detail: String?
     @NSManaged public var id: UUID?
     @NSManaged public var imageData: Data?
-    @NSManaged public var isSold: Bool
+    @NSManaged public var quantity: Int32
     @NSManaged public var name: String?
     @NSManaged public var price: Double
     @NSManaged public var user: User?

@@ -11,9 +11,9 @@ struct RegisterView: View {
     @ObservedObject var userListViewModel: UserListViewModel
     @Environment(\.dismiss) var dismiss
     
-    @State var username: String = ""
-    @State var password: String = ""
-    @State var confirmPassword: String = ""
+    @State private var username: String = ""
+    @State private var password: String = ""
+    @State private var confirmPassword: String = ""
     
     var body: some View {
         VStack {

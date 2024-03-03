@@ -10,7 +10,7 @@ import SwiftUI
 struct OrderListView: View {
     @ObservedObject var ordersListViewModel = OrdersListViewModel()
     
-    let columns = [
+    private let columns = [
         GridItem(),
         GridItem()
     ]

@@ -23,7 +23,7 @@ enum ExampleData {
         newProduct.detail = ""
         newProduct.imageData = nil
         newProduct.price = 350
-        newProduct.isSold = false
+        newProduct.quantity = 10
         return newProduct
     }
 }

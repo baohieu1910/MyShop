@@ -10,11 +10,9 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var userListViewModel = UserListViewModel()
     @ObservedObject var userManager = UserManager.shared
-    
-    @State var username = ""
-    @State var password = ""
-    
-    @State var loginError = false
+    @State private var username = ""
+    @State private var password = ""
+    @State private var loginError = false
     var body: some View {
         VStack {
             Text("Login to your account")
@@ -32,7 +30,6 @@ struct LoginView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.gray, lineWidth: 0.3)
                             )
-                        
                     }
                 }
                 .padding(.bottom)
@@ -56,8 +53,7 @@ struct LoginView: View {
             
             Button {
                 if userListViewModel.checkLogin(username: username, password: password) {
-                    userManager.login(username: username, password: password)
-                    
+                    userManager.login(user: userListViewModel.getUser(username: username)!)
                 } else {
                     loginError.toggle()
                 }

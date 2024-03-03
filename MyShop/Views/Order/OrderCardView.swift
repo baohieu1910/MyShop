@@ -15,9 +15,12 @@ struct OrderCardView: View {
             Image("\(order.imageName ?? "N/A")")
                 .resizable()
                 .scaledToFit()
+                .scaledToFill()
                 .frame(width: UIScreen.screenWidth / 2 - 20, height: UIScreen.screenWidth / 2 - 20)
+                .clipped()
             Text("\(order.name ?? "N/A")")
                 .lineLimit(2)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             Text("$\(order.price ?? 0.0, specifier: "%.0f")")
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -30,6 +33,10 @@ struct OrderCardView: View {
 
 struct OrderCardView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderCardView(order: Order(name: "Giày adidas Samba OG ‘White Black Gum’ B75806", imageName: "Samba", price: 125))
+        HStack {
+            OrderCardView(order: Order(name: "Giày adidas Samba OG ‘White Black Gum’ B75806", imageName: "Nike", price: 125))
+            
+            OrderCardView(order: Order(name: "Giày adidas Samba OG ‘White Black Gum’ B75806", imageName: "Nike", price: 125))
+        }
     }
 }

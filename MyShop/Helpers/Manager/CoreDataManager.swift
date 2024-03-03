@@ -59,6 +59,16 @@ extension CoreDataManager {
         }
     }
     
+    func deleteUser(user: User) {
+        viewContext.delete(user)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func deleteProduct(product: Product) {
         viewContext.delete(product)
 

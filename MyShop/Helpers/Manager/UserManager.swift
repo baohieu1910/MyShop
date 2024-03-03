@@ -15,11 +15,8 @@ class UserManager: ObservableObject {
 }
     
 extension UserManager {
-    func login(username: String, password: String) {
-        let newUser = User(context: CoreDataManager.shared.viewContext)
-        newUser.username = username
-        newUser.password = password
-        currentUser = newUser
+    func login(user: User) {
+        currentUser = user
     }
     
     func logout() {

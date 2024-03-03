@@ -13,25 +13,29 @@ struct MyProductView: View {
     let user: User
     
     var body: some View {
-        VStack {
-            ProductListView(products: userListViewModel.getUser(user: user).productsList)
+        ZStack {
+            ProductListView(products: user.productsList)
             
-            HStack {
+            VStack {
                 Spacer()
-                
-                NavigationLink {
-                    AddProductView(productListViewModel: productListViewModel, user: user)
-                } label: {
-                    Image(systemName: "plus")
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: UIScreen.screenWidth / 6, height: UIScreen.screenWidth / 6)
-                        .background(.orange)
-                        .cornerRadius(90)
-                        .padding(.horizontal)
+                HStack {
+                    Spacer()
+                    
+                    NavigationLink {
+                        AddProductView(productListViewModel: productListViewModel, user: user)
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(width: UIScreen.screenWidth / 6, height: UIScreen.screenWidth / 6)
+                            .background(.orange)
+                            .cornerRadius(90)
+                            .padding()
+                    }
                 }
             }
         }
+        .background(Color("LightGray"))
     }
 }
 

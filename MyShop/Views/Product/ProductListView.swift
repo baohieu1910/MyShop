@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ProductListView: View {
     let products: [Product]
-    
-    let columns = [
+    private let columns = [
         GridItem(),
         GridItem()
     ]
@@ -28,7 +27,8 @@ struct ProductListView: View {
                 }
             }
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 10)
+        .background(Color("LightGray"))
     }
 }
 

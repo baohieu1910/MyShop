@@ -22,15 +22,15 @@ extension ProductListViewModel {
         products = CoreDataManager.shared.getAllProducts()
     }
     
-    func addProduct(user: User, name: String, detail: String, imageData: Data, price: Double) {
+    func addProduct(user: User, name: String, detail: String, imageData: Data, quantity: Int, price: Double) {
         let newProduct = Product(context: CoreDataManager.shared.viewContext)
         
         newProduct.id = UUID()
         newProduct.name = name
         newProduct.detail = detail
         newProduct.imageData = imageData
+        newProduct.quantity = Int32(quantity)
         newProduct.price = price
-        newProduct.isSold = false
         
         user.addToProducts(newProduct)
         CoreDataManager.shared.saveContext()

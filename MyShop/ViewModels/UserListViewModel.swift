@@ -10,8 +10,6 @@ import Foundation
 class UserListViewModel: ObservableObject {
     @Published var users: [User] = []
     
-    private var productListViewModel = ProductListViewModel()
-    
     init() {
         getAllUsers()
     }
@@ -78,5 +76,15 @@ extension UserListViewModel {
         }
         
         return user
+    }
+    
+    func getUser(username: String) -> User? {
+        for user_ in users {
+            if user_.username?.uppercased() == username.uppercased() {
+                return user_
+            }
+        }
+        
+        return nil
     }
 }

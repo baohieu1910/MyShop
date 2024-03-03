@@ -28,7 +28,7 @@ struct AfterLoginView: View {
                             .frame(width: UIScreen.screenWidth / 5, height: UIScreen.screenWidth / 5)
                             .background(.white)
                             .cornerRadius(90)
-                            .padding()
+                            .padding([.vertical, .leading])
                         
                         VStack(alignment: .leading) {
                             Text("\(user.username?.uppercased() ?? "")")
@@ -110,6 +110,9 @@ struct AfterLoginView: View {
             .ignoresSafeArea()
             
             Button {
+                print(userManager.currentUser?.id)
+                print(userManager.currentUser?.username)
+                print(userListViewModel.users.count)
                 userManager.logout()
             } label: {
                 Text("Log Out")
@@ -124,7 +127,7 @@ struct AfterLoginView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    Text("CardView")
+                    CartView()
                 } label: {
                     Image(systemName: "cart")
                         .font(.system(size: 20))

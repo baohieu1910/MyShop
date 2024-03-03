@@ -15,15 +15,24 @@ struct ProductCardView: View {
             product.image?
                 .resizable()
                 .scaledToFit()
-                .frame(width: UIScreen.screenWidth / 2 - 20, height: UIScreen.screenWidth / 2 - 20)
-            Text("\(product.name ?? "N/A")")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .lineLimit(2)
+                .scaledToFill()
+                .frame(width: UIScreen.screenWidth / 2 - 15, height: UIScreen.screenWidth / 2 - 20)
+                .clipped()
             
-            Text("$\(product.price, specifier: "%.0f")")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.system(size: 20))
+            VStack {
+                Text("\(product.name ?? "N/A")")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .lineLimit(2)
+                
+                Text("$\(product.price, specifier: "%.0f")")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 20))
+                    .foregroundColor(.orange)
+            }
+            .padding(.horizontal)
         }
+        .padding(.bottom, 10)
+        .background(.white)
         .foregroundColor(.black)
     }
 }
