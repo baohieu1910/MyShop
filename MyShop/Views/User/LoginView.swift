@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var userListViewModel = UserListViewModel()
     @ObservedObject var userManager = UserManager.shared
     @State private var username = ""
@@ -54,6 +55,7 @@ struct LoginView: View {
             Button {
                 if userListViewModel.checkLogin(username: username, password: password) {
                     userManager.login(user: userListViewModel.getUser(username: username)!)
+                    dismiss()
                 } else {
                     loginError.toggle()
                 }

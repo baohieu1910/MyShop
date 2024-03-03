@@ -14,7 +14,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
-        <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="buyer" inverseEntity="Product"/>
+        <relationship name="cart" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="buyer" inverseEntity="Product"/>
         <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="user" inverseEntity="Product"/>
     </entity>
 </model>

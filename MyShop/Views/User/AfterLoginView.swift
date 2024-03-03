@@ -127,7 +127,7 @@ struct AfterLoginView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    CartView()
+                    CartView(user: user)
                 } label: {
                     Image(systemName: "cart")
                         .font(.system(size: 20))
@@ -137,6 +137,7 @@ struct AfterLoginView: View {
         }
         .onAppear {
             userListViewModel.updateUsers()
+            userListViewModel.updateProductCart(user: user)
         }
     }
 }

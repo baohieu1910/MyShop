@@ -68,6 +68,17 @@ extension UserListViewModel {
         updateUsers()
     }
     
+    func updateProductCart(user: User) {
+        for user_ in users {
+            if user_.username?.uppercased() == user.username?.uppercased() {
+                let cartSet = user.cart as? Set<Product> ?? []
+                let newCart = user_.cart?.addingObjects(from: cartSet)
+                user_.cart = NSSet(set: newCart ?? [])
+            }
+        }
+        updateUsers()
+    }
+    
     func getUser(user: User) -> User {
         for user_ in users {
             if user_.username?.uppercased() == user.username?.uppercased() {

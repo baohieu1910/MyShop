@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var userManager = UserManager.shared
     let product: Product
-    
+
     private var imageSize: CGFloat {
         let width = UIScreen.screenWidth
         let height = UIScreen.screenHeight / 2
@@ -40,7 +42,9 @@ struct ProductDetailView: View {
                 Divider()
                 
                 NavigationLink {
-                    ShopDetailView(user: product.user!)
+                    if let user = product.user {
+                        ShopDetailView(user: user)
+                    }
                 } label: {
                     HStack {
                         Image(systemName: "person.fill")
@@ -72,17 +76,30 @@ struct ProductDetailView: View {
             VStack {
                 Spacer()
                 HStack(spacing: 0) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "cart")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
-                            .padding()
-                            .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
-                            .background(.mint)
+                    if let user = userManager.currentUser {
+                        Button {
+                            Utils.addProductToCard(user: user, product: product)
+                            dismiss()
+                        } label: {
+                            Image(systemName: "cart")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                                .padding()
+                                .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
+                                .background(.mint)
+                        }
+                    } else {
+                        NavigationLink {
+                            LoginView()
+                        } label: {
+                            Image(systemName: "cart")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                                .padding()
+                                .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
+                                .background(.mint)
+                        }
                     }
-                    
                     Button {
                         
                     } label: {
@@ -93,8 +110,8 @@ struct ProductDetailView: View {
                             .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
                             .background(.orange)
                     }
+                    .padding(.vertical)
                 }
-                .padding(.vertical)
             }
 
         }
