@@ -22,7 +22,7 @@ struct OrderCardView: View {
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text("$\(order.price ?? 0.0, specifier: "%.0f")")
+            Text("\(order.price ?? 0.0, specifier: "%.0f")$")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 20))
 

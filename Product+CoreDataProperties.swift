@@ -2,7 +2,7 @@
 //  Product+CoreDataProperties.swift
 //  MyShop
 //
-//  Created by Hieu Le on 3/3/24.
+//  Created by Hieu Le on 3/4/24.
 //
 //
 
@@ -22,20 +22,21 @@ extension Product {
     @NSManaged public var name: String?
     @NSManaged public var price: Double
     @NSManaged public var quantity: Int32
-    @NSManaged public var user: User?
+    @NSManaged public var sold: Int32
     @NSManaged public var buyer: User?
-    
+    @NSManaged public var user: User?
+    @NSManaged public var orderer: User?
+
     public var image: Image? {
-        guard let imageData = imageData else {
-            return nil
+            guard let imageData = imageData else {
+                return nil
+            }
+            let uiImage = UIImage(data: imageData)
+            guard let uiImage = uiImage else {
+                return nil
+            }
+            return Image(uiImage: uiImage)
         }
-        let uiImage = UIImage(data: imageData)
-        guard let uiImage = uiImage else {
-            return nil
-        }
-        return Image(uiImage: uiImage)
-    }
-    
 }
 
 extension Product : Identifiable {

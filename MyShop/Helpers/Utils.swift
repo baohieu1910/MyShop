@@ -12,4 +12,9 @@ enum Utils {
         user.addToCart(product)
         CoreDataManager.shared.saveContext()
     }
+    
+    static func addToOderHistory(user: User, product: Product) {
+        user.addToOrderHistory(product)
+        CoreDataManager.shared.saveContext()
+    }
 }

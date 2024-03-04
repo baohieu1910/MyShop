@@ -29,7 +29,7 @@ struct ProductDetailView: View {
                     .clipped()
 
                 VStack(alignment: .leading) {
-                    Text("$\(product.price, specifier: "%.0f")")
+                    Text("\(product.price, specifier: "%.0f")$")
                         .font(.system(size: 30))
                         .foregroundColor(.orange)
                     

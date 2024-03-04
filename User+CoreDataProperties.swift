@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  MyShop
 //
-//  Created by Hieu Le on 3/3/24.
+//  Created by Hieu Le on 3/4/24.
 //
 //
 
@@ -19,13 +19,15 @@ extension User {
     @NSManaged public var id: UUID?
     @NSManaged public var password: String?
     @NSManaged public var username: String?
-    @NSManaged public var products: NSSet?
     @NSManaged public var cart: NSSet?
+    @NSManaged public var products: NSSet?
+    @NSManaged public var orderHistory: NSSet?
 
     public var productsList: [Product] {
         let productsSet = products as? Set<Product> ?? []
-        
-        return Array(productsSet)
+        return Array(productsSet).sorted { lhs, rhs in
+            lhs.name! < rhs.name!
+        }
     }
     
     public var productsCount: Int {
@@ -34,9 +36,31 @@ extension User {
     
     public var cartList: [Product] {
         let cartSet = cart as? Set<Product> ?? []
-        
-        return Array(cartSet)
+        return Array(cartSet).sorted { lhs, rhs in
+            lhs.name! < rhs.name!
+        }
     }
+    
+    public var cartCount: Int {
+        return cartList.count
+    }
+}
+
+// MARK: Generated accessors for cart
+extension User {
+
+    @objc(addCartObject:)
+    @NSManaged public func addToCart(_ value: Product)
+
+    @objc(removeCartObject:)
+    @NSManaged public func removeFromCart(_ value: Product)
+
+    @objc(addCart:)
+    @NSManaged public func addToCart(_ values: NSSet)
+
+    @objc(removeCart:)
+    @NSManaged public func removeFromCart(_ values: NSSet)
+
 }
 
 // MARK: Generated accessors for products
@@ -56,20 +80,20 @@ extension User {
 
 }
 
-// MARK: Generated accessors for cart
+// MARK: Generated accessors for orderHistory
 extension User {
 
-    @objc(addCartObject:)
-    @NSManaged public func addToCart(_ value: Product)
+    @objc(addOrderHistoryObject:)
+    @NSManaged public func addToOrderHistory(_ value: Product)
 
-    @objc(removeCartObject:)
-    @NSManaged public func removeFromCart(_ value: Product)
+    @objc(removeOrderHistoryObject:)
+    @NSManaged public func removeFromOrderHistory(_ value: Product)
 
-    @objc(addCart:)
-    @NSManaged public func addToCart(_ values: NSSet)
+    @objc(addOrderHistory:)
+    @NSManaged public func addToOrderHistory(_ values: NSSet)
 
-    @objc(removeCart:)
-    @NSManaged public func removeFromCart(_ values: NSSet)
+    @objc(removeOrderHistory:)
+    @NSManaged public func removeFromOrderHistory(_ values: NSSet)
 
 }
 

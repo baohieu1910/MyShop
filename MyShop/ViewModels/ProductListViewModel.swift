@@ -19,7 +19,9 @@ class ProductListViewModel: ObservableObject {
 
 extension ProductListViewModel {
     func getAllProducts() {
-        products = CoreDataManager.shared.getAllProducts()
+        products = CoreDataManager.shared.getAllProducts().sorted { lhs, rhs in
+            lhs.name! < rhs.name!
+        }
     }
     
     func addProduct(user: User, name: String, detail: String, imageData: Data, quantity: Int, price: Double) {
@@ -30,6 +32,7 @@ extension ProductListViewModel {
         newProduct.detail = detail
         newProduct.imageData = imageData
         newProduct.quantity = Int32(quantity)
+        newProduct.sold = Int32(0)
         newProduct.price = price
         
         user.addToProducts(newProduct)

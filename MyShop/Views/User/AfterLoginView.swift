@@ -12,6 +12,12 @@ struct AfterLoginView: View {
     @ObservedObject var userListViewModel = UserListViewModel()
     let user: User
     
+    init(user: User) {
+        self.user = user
+        userListViewModel.updateUsers()
+        userListViewModel.updateProductCart(user: user)
+    }
+    
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
@@ -110,9 +116,6 @@ struct AfterLoginView: View {
             .ignoresSafeArea()
             
             Button {
-                print(userManager.currentUser?.id)
-                print(userManager.currentUser?.username)
-                print(userListViewModel.users.count)
                 userManager.logout()
             } label: {
                 Text("Log Out")
@@ -127,7 +130,7 @@ struct AfterLoginView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    CartView(user: user)
+                    CartView(user: user, cartCount: user.cartCount)
                 } label: {
                     Image(systemName: "cart")
                         .font(.system(size: 20))
@@ -135,15 +138,11 @@ struct AfterLoginView: View {
                 }
             }
         }
-        .onAppear {
-            userListViewModel.updateUsers()
-            userListViewModel.updateProductCart(user: user)
-        }
     }
 }
 
 struct AfterLoginView_Previews: PreviewProvider {
     static var previews: some View {
-        AfterLoginView(userManager: UserManager(), userListViewModel: UserListViewModel(), user: ExampleData.user)
+        AfterLoginView(user: ExampleData.user)
     }
 }

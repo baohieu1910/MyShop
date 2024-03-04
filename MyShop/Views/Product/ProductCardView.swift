@@ -24,7 +24,7 @@ struct ProductCardView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(2)
                 
-                Text("$\(product.price, specifier: "%.0f")")
+                Text("\(product.price, specifier: "%.0f")$")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 20))
                     .foregroundColor(.orange)
@@ -37,8 +37,11 @@ struct ProductCardView: View {
     }
 }
 
-//struct ProductCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductCardView()
-//    }
-//}
+struct ProductCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        HStack {
+            ProductCardView(product: ExampleData.product)
+            ProductCardView(product: ExampleData.product)
+        }
+    }
+}
