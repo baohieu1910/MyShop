@@ -14,7 +14,7 @@ struct MyProductView: View {
     
     var body: some View {
         ZStack {
-            ProductListView(products: user.productsList)
+            ProductListView(products: user.productsList, isOutOfStock: false)
             
             VStack {
                 Spacer()

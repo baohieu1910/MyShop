@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductListView: View {
     let products: [Product]
+    let isOutOfStock: Bool
     private let columns = [
         GridItem(),
         GridItem()
@@ -21,7 +22,7 @@ struct ProductListView: View {
                     NavigationLink {
                         ProductDetailView(product: product)
                     } label: {
-                        ProductCardView(product: product)
+                        ProductCardView(product: product, isOutOfStock: isOutOfStock)
                     }
                     
                 }
@@ -34,6 +35,6 @@ struct ProductListView: View {
 
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView(products: [])
+        ProductListView(products: [], isOutOfStock: false)
     }
 }

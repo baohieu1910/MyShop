@@ -20,6 +20,7 @@ struct OrderHistoryView: View {
         }
         .background(Color("LightGray"))
         .navigationTitle("Order history")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

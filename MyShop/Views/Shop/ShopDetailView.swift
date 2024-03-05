@@ -41,7 +41,7 @@ struct ShopDetailView: View {
                 }
                 .background(.orange)
                 
-                ProductListView(products: userListViewModel.getUser(user: user).productsList)
+                ProductListView(products: userListViewModel.getUser(user: user).productsList, isOutOfStock: false)
                 
             }
             .ignoresSafeArea()

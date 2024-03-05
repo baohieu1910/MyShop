@@ -13,12 +13,21 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            ProductListView(products: productListViewModel.products)
+            ScrollView {
+                VStack {
+                    ProductListView(products: productListViewModel.getInStockList(), isOutOfStock: false)
+                    
+                    Text("Out of stock")
+                    
+                    ProductListView(products: productListViewModel.getOutOfStockList(), isOutOfStock: true)
+                }
+            }
+            .background(Color("LightGray"))
         }
         .onAppear {
             productListViewModel.updateProducts()
         }
-        .searchable(text: $searchKey)
+//        .searchable(text: $searchKey)
     }
 }
 

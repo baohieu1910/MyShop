@@ -50,5 +50,34 @@ extension ProductListViewModel {
             CoreDataManager.shared.deleteProduct(product: product)
         }
     }
+    
+    func getProduct(product: Product) -> Product {
+        for product_ in products {
+            if product.id == product_.id {
+                return product_
+            }
+        }
+        return product
+    }
+    
+    func getOutOfStockList() -> [Product] {
+        var productList = [Product]()
+        for product in products {
+            if product.checkOutOfStock() {
+                productList.append(product)
+            }
+        }
+        return productList
+    }
+    
+    func getInStockList() -> [Product] {
+        var productList = [Product]()
+        for product in products {
+            if !product.checkOutOfStock() {
+                productList.append(product)
+            }
+        }
+        return productList
+    }
 }
 

@@ -37,6 +37,14 @@ extension Product {
         }
         return Image(uiImage: uiImage)
     }
+    
+    public func purchase() {
+        self.sold += 1
+    }
+    
+    public func checkOutOfStock() -> Bool {
+        return sold == quantity
+    }
 }
 
 extension Product : Identifiable {

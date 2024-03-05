@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var productListViewModel = ProductListViewModel()
     let user: User
     @State var selectedList: [Bool]
     
@@ -72,6 +73,7 @@ struct CartView: View {
     func purchase() {
         for index in selectedList.indices {
             if selectedList[index] {
+                productListViewModel.getProduct(product: user.cartList[index]).purchase()
                 Utils.addToOderHistory(user: user, product: user.cartList[index])
                 Utils.removeFromCart(user: user, product: user.cartList[index])
             }
