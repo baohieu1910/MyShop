@@ -28,15 +28,15 @@ extension Product {
     @NSManaged public var orderer: User?
 
     public var image: Image? {
-            guard let imageData = imageData else {
-                return nil
-            }
-            let uiImage = UIImage(data: imageData)
-            guard let uiImage = uiImage else {
-                return nil
-            }
-            return Image(uiImage: uiImage)
+        guard let imageData = imageData else {
+            return nil
         }
+        let uiImage = UIImage(data: imageData)
+        guard let uiImage = uiImage else {
+            return nil
+        }
+        return Image(uiImage: uiImage)
+    }
 }
 
 extension Product : Identifiable {

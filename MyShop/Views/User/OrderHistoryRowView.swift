@@ -1,16 +1,14 @@
 //
-//  CartRowView.swift
+//  OrderHistoryRowView.swift
 //  MyShop
 //
-//  Created by Hieu Le on 3/3/24.
+//  Created by Hieu Le on 3/5/24.
 //
 
 import SwiftUI
 
-struct CartRowView: View {
+struct OrderHistoryRowView: View {
     let product: Product
-    @State var quantity = 1
-    @Binding var selected: Bool
     
     var body: some View {
         VStack(spacing: 0) {
@@ -21,15 +19,8 @@ struct CartRowView: View {
             }
             
             HStack {
-                Button {
-                    selected.toggle()
-                } label: {
-                    Image(systemName: selected ? "checkmark.square" : "square")
-                        .font(.title2)
-                }
-                
                 product.image?
-                //            Image("Nike")
+//                Image("Nike")
                     .resizable()
                     .scaledToFit()
                     .frame(width: UIScreen.screenWidth / 4)
@@ -41,14 +32,14 @@ struct CartRowView: View {
                     Text("\(product.name ?? "N/A")")
                         .lineLimit(1)
                     
-                    Text("\(product.price, specifier: "%.0f")$")
-                        .font(.system(size: 20))
-                        .foregroundColor(.orange)
-                    
-                    
-                    Stepper(value: $quantity, in: 1...10) {
-                        Text("Quantity: \(quantity)")
+                    HStack {
+                        Spacer()
+                        
+                        Text("\(product.price, specifier: "%.0f")$")
+                            .font(.system(size: 20))
+                            .foregroundColor(.orange)
                     }
+                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -56,12 +47,11 @@ struct CartRowView: View {
         .foregroundColor(.black)
         .padding(10)
         .background(.white)
-        
     }
 }
 
-struct CartRowView_Previews: PreviewProvider {
+struct OrderHistoryRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CartRowView(product: ExampleData.product, selected: Binding.constant(true))
+        OrderHistoryRowView(product: ExampleData.product)
     }
 }

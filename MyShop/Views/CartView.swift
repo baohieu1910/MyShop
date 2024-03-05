@@ -8,21 +8,19 @@
 import SwiftUI
 
 struct CartView: View {
+    @Environment(\.dismiss) var dismiss
     let user: User
     @State var selectedList: [Bool]
     
     init(user: User, cartCount: Int) {
         self.user = user
-        self.selectedList = [Bool](repeating: false, count: cartCount)
+        self._selectedList = State(initialValue: [Bool](repeating: false, count: cartCount))
     }
     
     var body: some View {
-        ZStack {
+        VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    //                    ForEach(user.cartList) { product in
-                    //                        CartRowView(product: product, selected: Binding.constant(false))
-                    //                    }
                     ForEach(0..<user.cartCount, id: \.self) { index in
                         CartRowView(product: user.cartList[index], selected: $selectedList[index])
                     }
@@ -30,9 +28,8 @@ struct CartView: View {
             }
             .background(Color("LightGray"))
             
+            
             VStack {
-                Spacer()
-                
                 HStack {
                     Spacer()
                     Text("Total payment")
@@ -40,7 +37,8 @@ struct CartView: View {
                         .foregroundColor(.orange)
                     
                     Button {
-                        
+                        purchase()
+                        dismiss()
                     } label: {
                         Text("Purchase(\(totalPayment().1))")
                             .foregroundColor(.white)
@@ -70,6 +68,17 @@ struct CartView: View {
         }
         return (total, num)
     }
+    
+    func purchase() {
+        for index in selectedList.indices {
+            if selectedList[index] {
+                Utils.addToOderHistory(user: user, product: user.cartList[index])
+                Utils.removeFromCart(user: user, product: user.cartList[index])
+            }
+        }
+    }
+    
+    
     
 }
 

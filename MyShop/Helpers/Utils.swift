@@ -8,13 +8,18 @@
 import Foundation
 
 enum Utils {
-    static func addProductToCard(user: User, product: Product) {
+    static func addProductToCart(user: User, product: Product) {
         user.addToCart(product)
         CoreDataManager.shared.saveContext()
     }
     
     static func addToOderHistory(user: User, product: Product) {
         user.addToOrderHistory(product)
+        CoreDataManager.shared.saveContext()
+    }
+    
+    static func removeFromCart(user: User, product: Product) {
+        user.removeFromCart(product)
         CoreDataManager.shared.saveContext()
     }
 }

@@ -44,6 +44,17 @@ extension User {
     public var cartCount: Int {
         return cartList.count
     }
+    
+    public var orderHistoryList: [Product] {
+        let historySet = orderHistory as? Set<Product> ?? []
+        return Array(historySet).sorted { lhs, rhs in
+            lhs.name! < rhs.name!
+        }
+    }
+    
+    public var orderHistoryCount: Int {
+        return orderHistoryList.count
+    }
 }
 
 // MARK: Generated accessors for cart

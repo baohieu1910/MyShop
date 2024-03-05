@@ -70,7 +70,7 @@ struct AfterLoginView: View {
                     Divider()
                     
                     NavigationLink {
-                        
+                        OrderHistoryView(user: user)
                     } label: {
                         HStack {
                             Image(systemName: "list.bullet.rectangle.portrait")

@@ -78,7 +78,7 @@ struct ProductDetailView: View {
                 HStack(spacing: 0) {
                     if let user = userManager.currentUser {
                         Button {
-                            Utils.addProductToCard(user: user, product: product)
+                            Utils.addProductToCart(user: user, product: product)
                             dismiss()
                         } label: {
                             Image(systemName: "cart")
