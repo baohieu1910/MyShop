@@ -98,4 +98,34 @@ extension UserListViewModel {
         
         return nil
     }
+    
+    func getUserOutOfStock(user: User) -> [Product] {
+        var productList = [Product]()
+        for user_ in users {
+            if user_.username?.uppercased() == user.username?.uppercased() {
+                for product in user.productsList {
+                    if product.checkOutOfStock() {
+                        productList.append(product)
+                    }
+                }
+                return productList
+            }
+        }
+        return productList
+    }
+    
+    func getUserInStock(user: User) -> [Product] {
+        var productList = [Product]()
+        for user_ in users {
+            if user_.username?.uppercased() == user.username?.uppercased() {
+                for product in user.productsList {
+                    if !product.checkOutOfStock() {
+                        productList.append(product)
+                    }
+                }
+                return productList
+            }
+        }
+        return productList
+    }
 }

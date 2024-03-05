@@ -222,12 +222,12 @@
 		A47E31E22B8F618300DB8CEF /* User */ = {
 			isa = PBXGroup;
 			children = (
-				A4FEE4A12B904DB900C87C8F /* UserView.swift */,
 				A4FEE4A32B9063F700C87C8F /* AfterLoginView.swift */,
 				A47E31E32B8F619000DB8CEF /* LoginView.swift */,
-				A42E82892B970367004BCC27 /* OrderHistoryView.swift */,
 				A42E828B2B97065E004BCC27 /* OrderHistoryRowView.swift */,
+				A42E82892B970367004BCC27 /* OrderHistoryView.swift */,
 				A47E31E52B8F630800DB8CEF /* RegisterView.swift */,
+				A4FEE4A12B904DB900C87C8F /* UserView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -237,9 +237,9 @@
 			children = (
 				A4E3583D2B9244E60021A296 /* AddProductView.swift */,
 				A42E828D2B974275004BCC27 /* AllProductListView.swift */,
+				A46401462B947D30002AC55B /* CartRowView.swift */,
 				A4E358362B91F6300021A296 /* MyProductView.swift */,
 				A4E358392B91F7310021A296 /* ProductCardView.swift */,
-				A46401462B947D30002AC55B /* CartRowView.swift */,
 				A4E3583F2B92E3FA0021A296 /* ProductDetailView.swift */,
 				A4E3583B2B91F7630021A296 /* ProductListView.swift */,
 			);

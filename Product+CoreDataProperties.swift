@@ -38,12 +38,12 @@ extension Product {
         return Image(uiImage: uiImage)
     }
     
-    public func purchase() {
-        self.sold += 1
+    public func purchase(quantities: Int) {
+        self.sold += Int32(quantities)
     }
     
     public func checkOutOfStock() -> Bool {
-        return sold == quantity
+        return sold >= quantity
     }
 }
 

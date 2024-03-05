@@ -12,10 +12,12 @@ struct CartView: View {
     @ObservedObject var productListViewModel = ProductListViewModel()
     let user: User
     @State var selectedList: [Bool]
+    @State var quantityList: [Int]
     
     init(user: User, cartCount: Int) {
         self.user = user
         self._selectedList = State(initialValue: [Bool](repeating: false, count: cartCount))
+        self._quantityList = State(initialValue: [Int](repeating: 1, count: cartCount))
     }
     
     var body: some View {
@@ -23,7 +25,7 @@ struct CartView: View {
             ScrollView(showsIndicators: false) {
                 VStack {
                     ForEach(0..<user.cartCount, id: \.self) { index in
-                        CartRowView(product: user.cartList[index], selected: $selectedList[index])
+                        CartRowView(product: user.cartList[index], selected: $selectedList[index], quantity: $quantityList[index])
                     }
                 }
             }
@@ -63,7 +65,7 @@ struct CartView: View {
         
         for index in selectedList.indices {
             if selectedList[index] {
-                total += user.cartList[index].price
+                total += user.cartList[index].price*Double(quantityList[index])
                 num += 1
             }
         }
@@ -73,7 +75,7 @@ struct CartView: View {
     func purchase() {
         for index in selectedList.indices {
             if selectedList[index] {
-                productListViewModel.getProduct(product: user.cartList[index]).purchase()
+                productListViewModel.getProduct(product: user.cartList[index]).purchase(quantities: quantityList[index])
                 Utils.addToOderHistory(user: user, product: user.cartList[index])
                 Utils.removeFromCart(user: user, product: user.cartList[index])
             }

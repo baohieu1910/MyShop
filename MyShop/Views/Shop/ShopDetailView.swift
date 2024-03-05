@@ -14,38 +14,69 @@ struct ShopDetailView: View {
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
-                VStack {
-                    HStack {
-                        Text("")
-                            .padding(20)
+                VStack(spacing: 0) {
+                    VStack {
+                        HStack {
+                            Text("")
+                                .padding(20)
+                        }
+                        
+                        HStack {
+                            Image(systemName: "person.fill")
+                                .font(.system(size: 50))
+                                .foregroundColor(.orange)
+                                .frame(width: UIScreen.screenWidth / 5, height: UIScreen.screenWidth / 5)
+                                .background(.white)
+                                .cornerRadius(90)
+                                .padding([.vertical, .leading])
+                            
+                            VStack(alignment: .leading) {
+                                Text("\(user.username?.uppercased() ?? "")")
+                                    .font(.title)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.white)
+                            
+                            Spacer()
+                        }
                     }
+                    .background(.orange)
+                    
+                    Divider()
                     
                     HStack {
-                        Image(systemName: "person.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(.orange)
-                            .frame(width: UIScreen.screenWidth / 5, height: UIScreen.screenWidth / 5)
-                            .background(.white)
-                            .cornerRadius(90)
-                            .padding([.vertical, .leading])
+                        Text("Latest")
+                            .frame(width: UIScreen.screenWidth / 4)
                         
-                        VStack(alignment: .leading) {
-                            Text("\(user.username?.uppercased() ?? "")")
-                                .font(.title)
+                        Divider()
+                        
+                        Text("Bestseller")
+                            .frame(width: UIScreen.screenWidth / 4)
+                        Divider()
+                        
+                        HStack {
+                            Text("Price")
+                            
+                            Image(systemName: "arrow.down")
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundColor(.white)
+                        .frame(width: UIScreen.screenWidth / 4)
+                    }
+                    .padding(10)
+                    
+                    Divider()
+                    
+                    VStack {
+                        ProductListView(products: userListViewModel.getUserOutOfStock(user: user), isOutOfStock: false)
                         
-                        Spacer()
+                        Text("Out of stock")
+                        
+                        ProductListView(products: userListViewModel.getUserInStock(user: user), isOutOfStock: true)
                     }
                 }
-                .background(.orange)
-                
-                ProductListView(products: userListViewModel.getUser(user: user).productsList, isOutOfStock: false)
-                
             }
-            .ignoresSafeArea()
+            .edgesIgnoringSafeArea(.top)
         }
+        .background(Color("LightGray"))
         .onAppear {
             userListViewModel.updateUsers()
         }

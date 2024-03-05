@@ -21,12 +21,27 @@ struct ProductDetailView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                product.image?
-                    .resizable()
-                    .scaledToFit()
-                    .scaledToFill()
-                    .frame(width: imageSize, height: imageSize)
-                    .clipped()
+                ZStack {
+                    product.image?
+                        .resizable()
+                        .scaledToFit()
+                        .scaledToFill()
+                        .frame(width: imageSize, height: imageSize)
+                        .clipped()
+                    
+                    if product.checkOutOfStock() {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(.black)
+                                .frame(width: imageSize / 4, height: imageSize / 4)
+                                .opacity(0.7)
+                            
+                            Text("Sold")
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
+                .frame(width: imageSize, height: imageSize)
 
                 VStack(alignment: .leading) {
                     Text("\(product.price, specifier: "%.0f")$")
@@ -75,42 +90,45 @@ struct ProductDetailView: View {
             
             VStack {
                 Spacer()
-                HStack(spacing: 0) {
-                    if let user = userManager.currentUser {
+                
+                if product.user != userManager.currentUser && !product.checkOutOfStock() {
+                    HStack(spacing: 0) {
+                        if let user = userManager.currentUser {
+                            Button {
+                                Utils.addProductToCart(user: user, product: product)
+                                dismiss()
+                            } label: {
+                                Image(systemName: "cart")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 20))
+                                    .padding()
+                                    .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
+                                    .background(.mint)
+                            }
+                        } else {
+                            NavigationLink {
+                                LoginView()
+                            } label: {
+                                Image(systemName: "cart")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 20))
+                                    .padding()
+                                    .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
+                                    .background(.mint)
+                            }
+                        }
                         Button {
-                            Utils.addProductToCart(user: user, product: product)
-                            dismiss()
+                            
                         } label: {
-                            Image(systemName: "cart")
+                            Text("Buy")
                                 .foregroundColor(.white)
                                 .font(.system(size: 20))
                                 .padding()
                                 .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
-                                .background(.mint)
+                                .background(.orange)
                         }
-                    } else {
-                        NavigationLink {
-                            LoginView()
-                        } label: {
-                            Image(systemName: "cart")
-                                .foregroundColor(.white)
-                                .font(.system(size: 20))
-                                .padding()
-                                .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
-                                .background(.mint)
-                        }
+                        .padding(.vertical)
                     }
-                    Button {
-                        
-                    } label: {
-                        Text("Buy")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
-                            .padding()
-                            .frame(width: UIScreen.screenWidth / 2, height: UIScreen.screenWidth / 8)
-                            .background(.orange)
-                    }
-                    .padding(.vertical)
                 }
             }
 

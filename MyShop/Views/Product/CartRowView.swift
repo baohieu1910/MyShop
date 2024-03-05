@@ -9,9 +9,8 @@ import SwiftUI
 
 struct CartRowView: View {
     let product: Product
-    @State var quantity = 1
     @Binding var selected: Bool
-    
+    @Binding var quantity: Int
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -62,6 +61,6 @@ struct CartRowView: View {
 
 struct CartRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CartRowView(product: ExampleData.product, selected: Binding.constant(true))
+        CartRowView(product: ExampleData.product, selected: Binding.constant(true), quantity: Binding.constant(1))
     }
 }

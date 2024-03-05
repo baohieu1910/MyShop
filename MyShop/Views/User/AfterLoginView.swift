@@ -59,7 +59,7 @@ struct AfterLoginView: View {
                                 .font(.system(size: 20))
                                 .padding(.trailing, 10)
                             
-                            Text("My product")
+                            Text("My products")
                             
                             Spacer()
                         }

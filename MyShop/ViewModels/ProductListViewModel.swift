@@ -10,6 +10,9 @@ import SwiftUI
 
 class ProductListViewModel: ObservableObject {
     @Published var products = [Product]()
+    @Published var productsCanBuy = [Product]()
+    
+    @ObservedObject var userManager = UserManager.shared
     
     init() {
         getAllProducts()
@@ -22,6 +25,13 @@ extension ProductListViewModel {
         products = CoreDataManager.shared.getAllProducts().sorted { lhs, rhs in
             lhs.name! < rhs.name!
         }
+        var productList = [Product]()
+        for product in products {
+            if product.user != userManager.currentUser {
+                productList.append(product)
+            }
+        }
+        productsCanBuy = productList
     }
     
     func addProduct(user: User, name: String, detail: String, imageData: Data, quantity: Int, price: Double) {
@@ -62,7 +72,7 @@ extension ProductListViewModel {
     
     func getOutOfStockList() -> [Product] {
         var productList = [Product]()
-        for product in products {
+        for product in productsCanBuy {
             if product.checkOutOfStock() {
                 productList.append(product)
             }
@@ -72,7 +82,7 @@ extension ProductListViewModel {
     
     func getInStockList() -> [Product] {
         var productList = [Product]()
-        for product in products {
+        for product in productsCanBuy {
             if !product.checkOutOfStock() {
                 productList.append(product)
             }

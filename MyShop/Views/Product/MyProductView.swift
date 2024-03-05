@@ -36,6 +36,8 @@ struct MyProductView: View {
             }
         }
         .background(Color("LightGray"))
+        .navigationTitle("My products")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
