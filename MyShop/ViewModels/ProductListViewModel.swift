@@ -89,5 +89,47 @@ extension ProductListViewModel {
         }
         return productList
     }
+
+    func getUserOutOfStock(user: User) -> [Product] {
+        var productList = [Product]()
+        for product in productsCanBuy {
+            if product.checkOutOfStock() {
+                if product.user?.username?.uppercased() == user.username?.uppercased() {
+                    productList.append(product)
+                }
+            }
+        }
+        return productList
+    }
+    
+    func getUserInStock(user: User) -> [Product] {
+        var productList = [Product]()
+        for product in productsCanBuy {
+            if !product.checkOutOfStock() {
+                if product.user?.username?.uppercased() == user.username?.uppercased() {
+                    productList.append(product)
+                }
+            }
+        }
+        return productList
+    }
+    
+    func byLatest() {
+        productsCanBuy = productsCanBuy.sorted { lhs, rhs in
+            lhs.price < rhs.price
+        }
+    }
+    
+    func byBestseller() {
+        productsCanBuy = productsCanBuy.sorted { lhs, rhs in
+            lhs.sold > rhs.sold
+        }
+    }
+    
+    func byPrice() {
+        productsCanBuy = productsCanBuy.sorted { lhs, rhs in
+            lhs.price > lhs.price
+        }
+    }
 }
 

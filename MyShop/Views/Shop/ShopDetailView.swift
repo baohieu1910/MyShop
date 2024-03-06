@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ShopDetailView: View {
     @ObservedObject var userListViewModel = UserListViewModel()
+    @ObservedObject var productListViewModel = ProductListViewModel()
     let user: User
+    
+    enum ViewStatus {
+        case latest
+        case bestseller
+        case price
+    }
+    @State var status = ViewStatus.bestseller
     
     var body: some View {
         VStack {
@@ -40,37 +48,57 @@ struct ShopDetailView: View {
                             Spacer()
                         }
                     }
+                    .frame(height: UIScreen.screenHeight / 5)
                     .background(.orange)
                     
                     Divider()
                     
                     HStack {
-                        Text("Latest")
-                            .frame(width: UIScreen.screenWidth / 4)
-                        
-                        Divider()
-                        
-                        Text("Bestseller")
-                            .frame(width: UIScreen.screenWidth / 4)
-                        Divider()
-                        
-                        HStack {
-                            Text("Price")
-                            
-                            Image(systemName: "arrow.down")
+                        Button {
+                            status = .latest
+                            productListViewModel.byLatest()
+                        } label: {
+                            Text("Latest")
+                                .frame(width: UIScreen.screenWidth / 4)
+                                .foregroundColor(status == .latest ? .orange : .gray)
                         }
-                        .frame(width: UIScreen.screenWidth / 4)
+                        Divider()
+                        
+                        Button {
+                            status = .bestseller
+                            productListViewModel.byBestseller()
+                        } label: {
+                            Text("Bestseller")
+                                .frame(width: UIScreen.screenWidth / 4)
+                                .foregroundColor(status == .bestseller ? .orange : .gray)
+                        }
+                        
+                        Divider()
+                        
+                        Button {
+                            status = .price
+                            productListViewModel.byPrice()
+                        } label: {
+                            HStack {
+                                Text("Price")
+                                
+                                Image(systemName: "arrow.down")
+                            }
+                            .frame(width: UIScreen.screenWidth / 4)
+                            .foregroundColor(status == .price ? .orange : .gray)
+                        }
                     }
                     .padding(10)
                     
                     Divider()
                     
                     VStack {
-                        ProductListView(products: userListViewModel.getUserOutOfStock(user: user), isOutOfStock: false)
+                        ProductListView(products: productListViewModel.getUserInStock(user: user), isOutOfStock: false)
                         
                         Text("Out of stock")
                         
-                        ProductListView(products: userListViewModel.getUserInStock(user: user), isOutOfStock: true)
+                        ProductListView(products: productListViewModel.getUserOutOfStock(user: user), isOutOfStock: true)
+                        
                     }
                 }
             }
@@ -79,6 +107,7 @@ struct ShopDetailView: View {
         .background(Color("LightGray"))
         .onAppear {
             userListViewModel.updateUsers()
+            productListViewModel.updateProducts()
         }
     }
 }

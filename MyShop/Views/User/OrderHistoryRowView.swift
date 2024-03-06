@@ -30,7 +30,9 @@ struct OrderHistoryRowView: View {
                 
                 VStack(alignment: .leading) {
                     Text("\(product.name ?? "N/A")")
-                        .lineLimit(1)
+                        .lineLimit(2)
+                    
+                    Spacer()
                     
                     HStack {
                         Spacer()
@@ -43,6 +45,7 @@ struct OrderHistoryRowView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .frame(height: UIScreen.screenWidth / 4)
         }
         .foregroundColor(.black)
         .padding(10)

@@ -48,6 +48,7 @@ struct AfterLoginView: View {
                         Spacer()
                     }
                 }
+                .frame(height: UIScreen.screenHeight / 5)
                 .background(.orange)
                 
                 VStack {

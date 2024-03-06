@@ -34,6 +34,7 @@ struct ProductCardView: View {
                     }
                 }
             }
+            .frame(width: UIScreen.screenWidth / 2 - 15, height: UIScreen.screenWidth / 2 - 20)
             
             VStack {
                 Text("\(product.name ?? "N/A")")
