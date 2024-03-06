@@ -8,17 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
+    enum ViewStatus {
+        case home
+        case user
+    }
+    
+    @State var status = ViewStatus.home
+    
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
+        ZStack {
+            switch status {
+            case .home:
+                HomeView()
+            case .user:
+                UserView()
+            }
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Button {
+                        status = .home
+                    } label: {
+                        Image(systemName: status == .home ? "house.fill" : "house")
+                            .foregroundColor(status == .home ? .orange : .gray)
+                            .font(.system(size: 25))
+                            .padding(.horizontal, 30)
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        status = .user
+                    } label: {
+                        Image(systemName: status == .user ? "person.fill" : "person")
+                            .foregroundColor(status == .user ? .orange : .gray)
+                            .font(.system(size: 25))
+                            .padding(.horizontal, 30)
+                    }
                 }
-            
-            UserView()
-                .tabItem {
-                    Label("User", systemImage: "person")
-                }
+                .padding()
+                .frame(width: UIScreen.screenWidth * 2 / 3)
+                .background(.white)
+                .cornerRadius(90)
+            }
         }
     }
 }

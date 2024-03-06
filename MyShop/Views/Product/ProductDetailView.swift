@@ -43,12 +43,14 @@ struct ProductDetailView: View {
                 }
                 .frame(width: imageSize, height: imageSize)
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("\(product.price, specifier: "%.0f")$")
                         .font(.system(size: 30))
                         .foregroundColor(.orange)
                     
                     Text("\(product.name ?? "N/A")")
+                    
+                    Text("Sold \(product.sold)")
                     
                 }
                 .padding(.horizontal)
@@ -131,7 +133,6 @@ struct ProductDetailView: View {
                     }
                 }
             }
-
         }
         
     }

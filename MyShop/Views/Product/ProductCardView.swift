@@ -19,8 +19,9 @@ struct ProductCardView: View {
                     .resizable()
                     .scaledToFit()
                     .scaledToFill()
-                    .frame(width: UIScreen.screenWidth / 2 - 15, height: UIScreen.screenWidth / 2 - 20)
+                    .frame(width: UIScreen.screenWidth / 2 - 30, height: UIScreen.screenWidth / 2 - 30)
                     .clipped()
+                    .cornerRadius(20)
                 
                 if isOutOfStock {
                     ZStack {
@@ -57,6 +58,7 @@ struct ProductCardView: View {
         .padding(.bottom, 10)
         .background(.white)
         .foregroundColor(.black)
+        .cornerRadius(20)
     }
 }
 

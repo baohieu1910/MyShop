@@ -14,8 +14,6 @@ struct AfterLoginView: View {
     
     init(user: User) {
         self.user = user
-        userListViewModel.updateUsers()
-        userListViewModel.updateProductCart(user: user)
     }
     
     var body: some View {
@@ -127,6 +125,11 @@ struct AfterLoginView: View {
                     .background(.orange)
                     .cornerRadius(90)
             }
+        }
+        .onAppear {    
+            userListViewModel.updateUsers()
+            userListViewModel.updateProductCart(user: user)
+            userListViewModel.updateOrderHistory(user: user)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

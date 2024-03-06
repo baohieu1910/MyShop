@@ -59,6 +59,8 @@
 		A42E82892B970367004BCC27 /* OrderHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView.swift; sourceTree = "<group>"; };
 		A42E828B2B97065E004BCC27 /* OrderHistoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryRowView.swift; sourceTree = "<group>"; };
 		A42E828D2B974275004BCC27 /* AllProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductListView.swift; sourceTree = "<group>"; };
+		A42E82902B98BFAA004BCC27 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		A42E82912B98BFAB004BCC27 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		A46401442B94757B002AC55B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A46401462B947D30002AC55B /* CartRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRowView.swift; sourceTree = "<group>"; };
 		A47E31BF2B8F160500DB8CEF /* MyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,15 @@
 				A4FEE49F2B90425D00C87C8F /* UserManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		A42E828F2B98BF84004BCC27 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A42E82912B98BFAB004BCC27 /* PlayfairDisplay-Bold.ttf */,
+				A42E82902B98BFAA004BCC27 /* PlayfairDisplay-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		A47E31B62B8F160500DB8CEF = {
@@ -194,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				A4150D9C2B90C58600AEC7C5 /* ExampleData.swift */,
+				A42E828F2B98BF84004BCC27 /* Fonts */,
 				A41C4B7D2B9373A30032660D /* ImagePicker.swift */,
 				A46401442B94757B002AC55B /* Utils.swift */,
 				A420DCF12B8F7A7400CD7496 /* Manager */,

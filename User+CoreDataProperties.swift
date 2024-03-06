@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  MyShop
 //
-//  Created by Hieu Le on 3/4/24.
+//  Created by Hieu Le on 3/6/24.
 //
 //
 
@@ -22,11 +22,11 @@ extension User {
     @NSManaged public var cart: NSSet?
     @NSManaged public var products: NSSet?
     @NSManaged public var orderHistory: NSSet?
-
+    
     public var productsList: [Product] {
         let productsSet = products as? Set<Product> ?? []
         return Array(productsSet).sorted { lhs, rhs in
-            lhs.name! < rhs.name!
+            lhs.date! < rhs.date!
         }
     }
     
@@ -37,7 +37,7 @@ extension User {
     public var cartList: [Product] {
         let cartSet = cart as? Set<Product> ?? []
         return Array(cartSet).sorted { lhs, rhs in
-            lhs.name! < rhs.name!
+            lhs.date! < rhs.date!
         }
     }
     
@@ -48,7 +48,7 @@ extension User {
     public var orderHistoryList: [Product] {
         let historySet = orderHistory as? Set<Product> ?? []
         return Array(historySet).sorted { lhs, rhs in
-            lhs.name! < rhs.name!
+            lhs.date! < rhs.date!
         }
     }
     

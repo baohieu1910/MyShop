@@ -2,7 +2,7 @@
 //  Product+CoreDataProperties.swift
 //  MyShop
 //
-//  Created by Hieu Le on 3/4/24.
+//  Created by Hieu Le on 3/6/24.
 //
 //
 
@@ -23,6 +23,7 @@ extension Product {
     @NSManaged public var price: Double
     @NSManaged public var quantity: Int32
     @NSManaged public var sold: Int32
+    @NSManaged public var date: Date?
     @NSManaged public var buyer: User?
     @NSManaged public var user: User?
     @NSManaged public var orderer: User?

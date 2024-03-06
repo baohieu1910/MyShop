@@ -22,18 +22,25 @@ struct HomeView: View {
                         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 5)
                         .background(.orange)
                         
-                        Text("Suggestion today")
+                        Text("Popular")
                             .font(.title2)
+//                            .font(.custom("PlayfairDisplay-Regular", size: 25))
                             .foregroundColor(.orange)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(10)
                         
                         VStack {
                             ProductListView(products: productListViewModel.getInStockList(), isOutOfStock: false)
-                            
-                            Text("Out of stock")
-                            
-                            ProductListView(products: productListViewModel.getOutOfStockList(), isOutOfStock: true)
+                            if productListViewModel.getOutOfStockList().count > 0 {
+                                
+                                Text("Out of stock")
+                                    .font(.title2)
+                                    .foregroundColor(.orange)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(10)
+                                
+                                ProductListView(products: productListViewModel.getOutOfStockList(), isOutOfStock: true)
+                            }
                         }
                     }
                 }

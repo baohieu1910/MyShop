@@ -65,8 +65,10 @@ struct CartView: View {
         
         for index in selectedList.indices {
             if selectedList[index] {
-                total += user.cartList[index].price*Double(quantityList[index])
-                num += 1
+                if index < user.cartList.count {
+                    total += user.cartList[index].price*Double(quantityList[index])
+                    num += 1
+                }
             }
         }
         return (total, num)

@@ -44,6 +44,7 @@ extension ProductListViewModel {
         newProduct.quantity = Int32(quantity)
         newProduct.sold = Int32(0)
         newProduct.price = price
+        newProduct.date = Date.now
         
         user.addToProducts(newProduct)
         CoreDataManager.shared.saveContext()
@@ -116,20 +117,23 @@ extension ProductListViewModel {
     
     func byLatest() {
         productsCanBuy = productsCanBuy.sorted { lhs, rhs in
-            lhs.price < rhs.price
+            lhs.date ?? Date.now > rhs.date ?? Date.now
         }
+        getAllProducts()
     }
     
     func byBestseller() {
         productsCanBuy = productsCanBuy.sorted { lhs, rhs in
             lhs.sold > rhs.sold
         }
+        getAllProducts()
     }
     
     func byPrice() {
         productsCanBuy = productsCanBuy.sorted { lhs, rhs in
             lhs.price > lhs.price
         }
+        getAllProducts()
     }
 }
 

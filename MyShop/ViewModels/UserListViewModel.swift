@@ -21,6 +21,12 @@ extension UserListViewModel {
         users = CoreDataManager.shared.getAllUsers()
     }
     
+    func deteleAllUser() {
+        for user in users {
+            CoreDataManager.shared.deleteUser(user: user)
+        }
+    }
+    
     func addUser(username: String, password: String) {
         let newUser = User(context: CoreDataManager.shared.viewContext)
         
@@ -74,6 +80,17 @@ extension UserListViewModel {
                 let cartSet = user.cart as? Set<Product> ?? []
                 let newCart = user_.cart?.addingObjects(from: cartSet)
                 user_.cart = NSSet(set: newCart ?? [])
+            }
+        }
+        updateUsers()
+    }
+    
+    func updateOrderHistory(user: User) {
+        for user_ in users {
+            if user_.username?.uppercased() == user.username?.uppercased() {
+                let orderSet = user.orderHistory as? Set<Product> ?? []
+                let newOrderList = user_.orderHistory?.addingObjects(from: orderSet)
+                user_.orderHistory = NSSet(set: newOrderList ?? [])
             }
         }
         updateUsers()
