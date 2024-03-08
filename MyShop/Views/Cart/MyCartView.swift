@@ -1,5 +1,5 @@
 //
-//  CartView.swift
+//  MyCartView.swift
 //  MyShop
 //
 //  Created by Hieu Le on 3/3/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CartView: View {
+struct MyCartView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var productListViewModel = ProductListViewModel()
     let user: User
@@ -88,8 +88,8 @@ struct CartView: View {
     
 }
 
-struct CartView_Previews: PreviewProvider {
+struct MyCartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(user: ExampleData.user, cartCount: 1)
+        MyCartView(user: ExampleData.user, cartCount: 1)
     }
 }

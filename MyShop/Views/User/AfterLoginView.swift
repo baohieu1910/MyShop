@@ -111,21 +111,24 @@ struct AfterLoginView: View {
 
                 
                 Divider()
+                
+                Button {
+                    userManager.logout()
+                } label: {
+                    Text("Log Out")
+                        .padding(.vertical)
+                        .padding(.horizontal, UIScreen.screenWidth / 3)
+                        .font(.system(size: 20))
+                        .foregroundColor(.white)
+                        .background(.orange)
+                        .cornerRadius(90)
+                }
             }
             .ignoresSafeArea()
+            .background(Color("LightGray"))
             
-            Button {
-                userManager.logout()
-            } label: {
-                Text("Log Out")
-                    .padding(.vertical)
-                    .padding(.horizontal, UIScreen.screenWidth / 3)
-                    .font(.system(size: 20))
-                    .foregroundColor(.white)
-                    .background(.orange)
-                    .cornerRadius(90)
-            }
         }
+        .navigationBarHidden(true)
         .onAppear {    
             userListViewModel.updateUsers()
             userListViewModel.updateProductCart(user: user)
@@ -134,7 +137,7 @@ struct AfterLoginView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    CartView(user: user, cartCount: user.cartCount)
+                    MyCartView(user: user, cartCount: user.cartCount)
                 } label: {
                     Image(systemName: "cart")
                         .font(.system(size: 20))

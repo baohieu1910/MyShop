@@ -40,18 +40,19 @@ struct ProductCardView: View {
             VStack {
                 Text("\(product.name ?? "N/A")")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 18, weight: .bold))
                     .lineLimit(2)
                 
                 HStack {
-                    Text("\(product.price, specifier: "%.0f")$")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.system(size: 20))
-                        .foregroundColor(.orange)
+                    Text("Sold \(product.sold)")
                     
                     Spacer()
                     
-                    Text("Sold \(product.sold)")
+                    Text("\(product.price, specifier: "%.0f")$")
+                        .font(.system(size: 20, weight: .bold))
+                    
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.horizontal, 10)
         }

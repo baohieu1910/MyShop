@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     enum ViewStatus {
         case home
+        case cart
         case user
     }
     
@@ -20,6 +21,8 @@ struct ContentView: View {
             switch status {
             case .home:
                 HomeView()
+            case .cart:
+                CartView()
             case .user:
                 UserView()
             }
@@ -33,10 +36,17 @@ struct ContentView: View {
                         Image(systemName: status == .home ? "house.fill" : "house")
                             .foregroundColor(status == .home ? .orange : .gray)
                             .font(.system(size: 25))
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, UIScreen.screenWidth / 18)
                     }
                     
-                    Spacer()
+                    Button {
+                        status = .cart
+                    } label: {
+                        Image(systemName: status == .cart ? "cart.fill" : "cart")
+                            .foregroundColor(status == .cart ? .orange : .gray)
+                            .font(.system(size: 25))
+                            .padding(.horizontal, UIScreen.screenWidth / 18)
+                    }
                     
                     Button {
                         status = .user
@@ -44,7 +54,7 @@ struct ContentView: View {
                         Image(systemName: status == .user ? "person.fill" : "person")
                             .foregroundColor(status == .user ? .orange : .gray)
                             .font(.system(size: 25))
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, UIScreen.screenWidth / 18)
                     }
                 }
                 .padding()

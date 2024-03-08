@@ -15,17 +15,20 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    VStack(spacing: 0) {
-                        VStack {
-
+                    VStack(alignment: .leading, spacing: 0) {
+                        VStack(alignment: .leading) {
+                            Text("Welcome to")
+                                .font(.custom("PlayfairDisplay-Regular", size: 25))
+                            Text("MyShop")
+                                .font(.custom("PlayfairDisplay-Bold", size: 25))
                         }
-                        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 5)
-                        .background(.orange)
+                        .padding(.horizontal)
+                        .foregroundColor(.orange)
+                        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 5, alignment: .leading)
+                        
                         
                         Text("Popular")
-                            .font(.title2)
-//                            .font(.custom("PlayfairDisplay-Regular", size: 25))
-                            .foregroundColor(.orange)
+                            .font(.custom("PlayfairDisplay-Bold", size: 25))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(10)
                         
@@ -34,8 +37,7 @@ struct HomeView: View {
                             if productListViewModel.getOutOfStockList().count > 0 {
                                 
                                 Text("Out of stock")
-                                    .font(.title2)
-                                    .foregroundColor(.orange)
+                                    .font(.custom("PlayfairDisplay-Bold", size: 25))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(10)
                                 
@@ -46,6 +48,7 @@ struct HomeView: View {
                 }
                 .edgesIgnoringSafeArea(.top)
             }
+            .navigationBarHidden(true)
             .background(Color("LightGray"))
             .onAppear {
                 productListViewModel.updateProducts()
