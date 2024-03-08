@@ -32,7 +32,7 @@ struct ShopDetailView: View {
                         HStack {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 50))
-                                .foregroundColor(.orange)
+                                .foregroundColor(Color("MyColor"))
                                 .frame(width: UIScreen.screenWidth / 5, height: UIScreen.screenWidth / 5)
                                 .background(.white)
                                 .cornerRadius(90)
@@ -49,7 +49,7 @@ struct ShopDetailView: View {
                         }
                     }
                     .frame(height: UIScreen.screenHeight / 5)
-                    .background(.orange)
+                    .background(Color("MyColor"))
                     
                     Divider()
                     
@@ -60,7 +60,7 @@ struct ShopDetailView: View {
                         } label: {
                             Text("Latest")
                                 .frame(width: UIScreen.screenWidth / 4)
-                                .foregroundColor(status == .latest ? .orange : .gray)
+                                .foregroundColor(status == .latest ? Color("MyColor") : .gray)
                         }
                         Divider()
                         
@@ -70,7 +70,7 @@ struct ShopDetailView: View {
                         } label: {
                             Text("Bestseller")
                                 .frame(width: UIScreen.screenWidth / 4)
-                                .foregroundColor(status == .bestseller ? .orange : .gray)
+                                .foregroundColor(status == .bestseller ? Color("MyColor") : .gray)
                         }
                         
                         Divider()
@@ -85,7 +85,7 @@ struct ShopDetailView: View {
                                 Image(systemName: "arrow.down")
                             }
                             .frame(width: UIScreen.screenWidth / 4)
-                            .foregroundColor(status == .price ? .orange : .gray)
+                            .foregroundColor(status == .price ? Color("MyColor") : .gray)
                         }
                     }
                     .padding(10)

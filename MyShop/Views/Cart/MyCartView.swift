@@ -37,7 +37,7 @@ struct MyCartView: View {
                     Spacer()
                     Text("Total payment")
                     Text("\(totalPayment().0, specifier: "%.0f")$")
-                        .foregroundColor(.orange)
+                        .foregroundColor(Color("MyColor"))
                     
                     Button {
                         purchase()
@@ -46,7 +46,7 @@ struct MyCartView: View {
                         Text("Purchase(\(totalPayment().1))")
                             .foregroundColor(.white)
                             .padding()
-                            .background(.orange)
+                            .background(Color("MyColor"))
                         
                     }
                 }

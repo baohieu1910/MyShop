@@ -14,6 +14,7 @@ struct OrderHistoryRowView: View {
         VStack(spacing: 0) {
             HStack {
                 Text("\(product.user?.username ?? "N/A")")
+                    .font(.system(size: 18, weight: .bold))
                 
                 Spacer()
             }
@@ -30,6 +31,7 @@ struct OrderHistoryRowView: View {
                 
                 VStack(alignment: .leading) {
                     Text("\(product.name ?? "N/A")")
+                        .font(.system(size: 18, weight: .bold))
                         .lineLimit(2)
                     
                     Spacer()
@@ -38,8 +40,8 @@ struct OrderHistoryRowView: View {
                         Spacer()
                         
                         Text("\(product.price, specifier: "%.0f")$")
-                            .font(.system(size: 20))
-                            .foregroundColor(.orange)
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(Color("MyColor"))
                     }
                     
                 }

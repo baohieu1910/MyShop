@@ -42,7 +42,7 @@ struct CartRowView: View {
                     
                     Text("\(product.price, specifier: "%.0f")$")
                         .font(.system(size: 20))
-                        .foregroundColor(.orange)
+                        .foregroundColor(Color("MyColor"))
                     
                     
                     Stepper(value: $quantity, in: 1...10) {

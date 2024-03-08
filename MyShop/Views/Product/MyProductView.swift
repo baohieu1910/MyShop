@@ -28,7 +28,7 @@ struct MyProductView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(width: UIScreen.screenWidth / 6, height: UIScreen.screenWidth / 6)
-                            .background(.orange)
+                            .background(Color("MyColor"))
                             .cornerRadius(90)
                             .padding()
                     }

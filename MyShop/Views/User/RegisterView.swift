@@ -21,7 +21,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "person")
-                            .foregroundColor(.orange)
+                            .foregroundColor(Color("MyColor"))
                         
                         TextField("Username", text: $username)
                             .padding(10)
@@ -56,7 +56,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "lock")
-                            .foregroundColor(.orange)
+                            .foregroundColor(Color("MyColor"))
                         
                         SecureField("Password", text: $password)
                             .padding(10)
@@ -83,7 +83,7 @@ struct RegisterView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Image(systemName: "lock")
-                            .foregroundColor(.orange)
+                            .foregroundColor(Color("MyColor"))
                         
                         SecureField("Confirm password", text: $confirmPassword)
                             .padding(10)
@@ -121,7 +121,7 @@ struct RegisterView: View {
                         .padding(.horizontal, UIScreen.screenWidth / 3)
                         .font(.system(size: 20))
                         .foregroundColor(.white)
-                        .background(.orange)
+                        .background(Color("MyColor"))
                         .cornerRadius(10)
                 }
             } else {

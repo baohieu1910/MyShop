@@ -34,7 +34,7 @@ struct ContentView: View {
                         status = .home
                     } label: {
                         Image(systemName: status == .home ? "house.fill" : "house")
-                            .foregroundColor(status == .home ? .orange : .gray)
+                            .foregroundColor(status == .home ? Color("MyColor") : .gray)
                             .font(.system(size: 25))
                             .padding(.horizontal, UIScreen.screenWidth / 18)
                     }
@@ -43,7 +43,7 @@ struct ContentView: View {
                         status = .cart
                     } label: {
                         Image(systemName: status == .cart ? "cart.fill" : "cart")
-                            .foregroundColor(status == .cart ? .orange : .gray)
+                            .foregroundColor(status == .cart ? Color("MyColor") : .gray)
                             .font(.system(size: 25))
                             .padding(.horizontal, UIScreen.screenWidth / 18)
                     }
@@ -52,7 +52,7 @@ struct ContentView: View {
                         status = .user
                     } label: {
                         Image(systemName: status == .user ? "person.fill" : "person")
-                            .foregroundColor(status == .user ? .orange : .gray)
+                            .foregroundColor(status == .user ? Color("MyColor") : .gray)
                             .font(.system(size: 25))
                             .padding(.horizontal, UIScreen.screenWidth / 18)
                     }

@@ -122,7 +122,7 @@ struct AddProductView: View {
                         .padding()
                         .foregroundColor(.white)
                         .frame(width: UIScreen.screenWidth / 3)
-                        .background(.orange)
+                        .background(Color("MyColor"))
                         .cornerRadius(90)
                 }
                 .alert("Please enter product name, price, quantity and image.", isPresented: $showError) {

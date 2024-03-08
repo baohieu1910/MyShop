@@ -23,7 +23,7 @@ struct HomeView: View {
                                 .font(.custom("PlayfairDisplay-Bold", size: 25))
                         }
                         .padding(.horizontal)
-                        .foregroundColor(.orange)
+                        .foregroundColor(Color("MyColor"))
                         .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 5, alignment: .leading)
                         
                         
@@ -33,7 +33,8 @@ struct HomeView: View {
                             .padding(10)
                         
                         VStack {
-                            ProductListView(products: productListViewModel.getInStockList(), isOutOfStock: false)
+//                            ProductListView(products: productListViewModel.getInStockList(), isOutOfStock: false)
+                            ProductListRowView(products: productListViewModel.getInStockList(), isOutOfStock: false)
                             if productListViewModel.getOutOfStockList().count > 0 {
                                 
                                 Text("Out of stock")
@@ -41,7 +42,8 @@ struct HomeView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(10)
                                 
-                                ProductListView(products: productListViewModel.getOutOfStockList(), isOutOfStock: true)
+//                                ProductListView(products: productListViewModel.getOutOfStockList(), isOutOfStock: true)
+                                ProductListRowView(products: productListViewModel.getOutOfStockList(), isOutOfStock: true)
                             }
                         }
                     }

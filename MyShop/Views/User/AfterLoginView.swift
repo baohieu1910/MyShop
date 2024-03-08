@@ -28,7 +28,7 @@ struct AfterLoginView: View {
                     HStack {
                         Image(systemName: "person.fill")
                             .font(.system(size: 50))
-                            .foregroundColor(.orange)
+                            .foregroundColor(Color("MyColor"))
                             .frame(width: UIScreen.screenWidth / 5, height: UIScreen.screenWidth / 5)
                             .background(.white)
                             .cornerRadius(90)
@@ -47,7 +47,7 @@ struct AfterLoginView: View {
                     }
                 }
                 .frame(height: UIScreen.screenHeight / 5)
-                .background(.orange)
+                .background(Color("MyColor"))
                 
                 VStack {
                     NavigationLink {
@@ -120,7 +120,7 @@ struct AfterLoginView: View {
                         .padding(.horizontal, UIScreen.screenWidth / 3)
                         .font(.system(size: 20))
                         .foregroundColor(.white)
-                        .background(.orange)
+                        .background(Color("MyColor"))
                         .cornerRadius(90)
                 }
             }
