@@ -67,11 +67,11 @@ struct LoginView: View {
                 } label: {
                     Text("Login")
                         .padding(.vertical)
-                        .padding(.horizontal, UIScreen.screenWidth / 3)
+                        .frame(width: UIScreen.screenWidth / 3)
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                         .background(Color("MyColor"))
-                        .cornerRadius(10)
+                        .cornerRadius(90)
                 }
                 .alert("Incorrect username or password. Please try again.", isPresented: $loginError) {
                     Button("OK", role: .cancel) {

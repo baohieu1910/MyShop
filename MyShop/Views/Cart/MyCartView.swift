@@ -28,9 +28,10 @@ struct MyCartView: View {
                         CartRowView(product: user.cartList[index], selected: $selectedList[index], quantity: $quantityList[index])
                     }
                 }
+                .frame(maxWidth: .infinity)
             }
+            .padding(.horizontal, 10)
             .background(Color("LightGray"))
-            
             
             VStack {
                 HStack {
@@ -56,7 +57,6 @@ struct MyCartView: View {
         }
         .navigationTitle("Cart")
         .navigationBarTitleDisplayMode(.inline)
-        
     }
     
     func totalPayment() -> (Double, Int) {

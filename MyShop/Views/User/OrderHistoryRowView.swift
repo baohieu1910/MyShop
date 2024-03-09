@@ -52,6 +52,7 @@ struct OrderHistoryRowView: View {
         .foregroundColor(.black)
         .padding(10)
         .background(.white)
+        .cornerRadius(20)
     }
 }
 

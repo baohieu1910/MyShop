@@ -16,125 +16,133 @@ struct RegisterView: View {
     @State private var confirmPassword: String = ""
     
     var body: some View {
-        VStack {
+        ZStack {
+            Color("LightGray")
+                .edgesIgnoringSafeArea(.all)
+            
             VStack {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "person")
-                            .foregroundColor(Color("MyColor"))
-                        
-                        TextField("Username", text: $username)
-                            .padding(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(checkUserName() ? Color.red : Color.gray, lineWidth: 0.3)
-                            )
-                        
+                Text("Create an account")
+                    .font(.custom("PlayfairDisplay-Bold", size: 30))
+
+                VStack {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "person")
+                                .foregroundColor(Color("MyColor"))
+                            
+                            TextField("Username", text: $username)
+                                .padding(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(checkUserName() ? Color.red : Color.gray, lineWidth: 0.3)
+                                )
+                            
+                        }
+                        if checkUserName() {
+                            Text("Username too short.")
+                                .font(.subheadline)
+                                .foregroundColor(.red)
+                                .italic()
+                            
+                        } else {
+                            if userListViewModel.checkUsername(username: username) {
+                                Text("Username has already been taken.")
+                                    .font(.subheadline)
+                                    .foregroundColor(.red)
+                                    .italic()
+                            } else {
+                                Text("A minimum of 4 characters.")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                    .italic()
+                            }
+                        }
                     }
-                    if checkUserName() {
-                        Text("Username too short.")
-                            .font(.subheadline)
-                            .foregroundColor(.red)
-                            .italic()
+                    .padding(.bottom)
+                    
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "lock")
+                                .foregroundColor(Color("MyColor"))
+                            
+                            SecureField("Password", text: $password)
+                                .padding(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(checkPassword() ? Color.red : Color.gray, lineWidth: 0.3)
+                                )
+                        }
                         
-                    } else {
-                        if userListViewModel.checkUsername(username: username) {
-                            Text("Username has already been taken.")
+                        if checkPassword() {
+                            Text("Password too short.")
                                 .font(.subheadline)
                                 .foregroundColor(.red)
                                 .italic()
                         } else {
-                            Text("A minimum of 4 characters.")
+                            Text("A minimum of 6 characters.")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                                 .italic()
                         }
                     }
+                    .padding(.bottom)
+                    
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "lock")
+                                .foregroundColor(Color("MyColor"))
+                            
+                            SecureField("Confirm password", text: $confirmPassword)
+                                .padding(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(checkConfirmPassword() ? Color.red : Color.gray, lineWidth: 0.3)
+                                )
+                        }
+                        
+                        if checkConfirmPassword() {
+                            Text("Wrong password.")
+                                .font(.subheadline)
+                                .foregroundColor(.red)
+                                .italic()
+                            
+                        } else {
+                            Text("Your confirm password should be the same as password.")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .italic()
+                        }
+                    }
+                    .padding(.bottom)
                 }
-                .padding(.bottom)
+                .padding(.vertical)
                 
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "lock")
-                            .foregroundColor(Color("MyColor"))
+                if !checkUserName() && !checkPassword() && !checkConfirmPassword() && checkEmpty() && !userListViewModel.checkUsername(username: username) {
+                    Button {
+                        userListViewModel.addUser(username: username, password: password)
                         
-                        SecureField("Password", text: $password)
-                            .padding(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(checkPassword() ? Color.red : Color.gray, lineWidth: 0.3)
-                            )
+                        dismiss()
+                    } label: {
+                        Text("Register")
+                            .padding(.vertical, 10)
+                            .frame(width: UIScreen.screenWidth / 3)
+                            .font(.system(size: 20))
+                            .foregroundColor(.white)
+                            .background(Color("MyColor"))
+                            .cornerRadius(90)
                     }
-                    
-                    if checkPassword() {
-                        Text("Password too short.")
-                            .font(.subheadline)
-                            .foregroundColor(.red)
-                            .italic()
-                    } else {
-                        Text("A minimum of 6 characters.")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .italic()
-                    }
-                }
-                .padding(.bottom)
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "lock")
-                            .foregroundColor(Color("MyColor"))
-                        
-                        SecureField("Confirm password", text: $confirmPassword)
-                            .padding(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(checkConfirmPassword() ? Color.red : Color.gray, lineWidth: 0.3)
-                            )
-                    }
-                    
-                    if checkConfirmPassword() {
-                        Text("Wrong password.")
-                            .font(.subheadline)
-                            .foregroundColor(.red)
-                            .italic()
-                        
-                    } else {
-                        Text("Your confirm password should be the same as password.")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .italic()
-                    }
-                }
-                .padding(.bottom)
-            }
-            .padding(.vertical)
-            
-            if !checkUserName() && !checkPassword() && !checkConfirmPassword() && checkEmpty() && !userListViewModel.checkUsername(username: username) {
-                Button {
-                    userListViewModel.addUser(username: username, password: password)
-                    
-                    dismiss()
-                } label: {
+                } else {
                     Text("Register")
                         .padding(.vertical, 10)
-                        .padding(.horizontal, UIScreen.screenWidth / 3)
+                        .frame(width: UIScreen.screenWidth / 3)
                         .font(.system(size: 20))
                         .foregroundColor(.white)
-                        .background(Color("MyColor"))
-                        .cornerRadius(10)
+                        .background(.gray)
+                        .cornerRadius(90)
                 }
-            } else {
-                Text("Register")
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, UIScreen.screenWidth / 3)
-                    .font(.system(size: 20))
-                    .foregroundColor(.white)
-                    .background(.gray)
-                    .cornerRadius(10)
             }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
     
     func checkEmpty() -> Bool {

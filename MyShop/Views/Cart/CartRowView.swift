@@ -11,50 +11,94 @@ struct CartRowView: View {
     let product: Product
     @Binding var selected: Bool
     @Binding var quantity: Int
+    
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Text("\(product.user?.username ?? "N/A")")
-                
-                Spacer()
+        ZStack(alignment: .bottomTrailing) {
+            Button {
+                selected.toggle()
+            } label: {
+                VStack(spacing: 0) {
+                    HStack {
+                        Text("\(product.user?.username ?? "N/A")")
+                            .font(.system(size: 18, weight: .bold))
+                        
+                        Spacer()
+                    }
+                    HStack {
+                        product.image?
+                        //                        Image("Nike")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: UIScreen.screenWidth / 4)
+                            .scaledToFill()
+                            .frame(width: UIScreen.screenWidth / 4, height: UIScreen.screenWidth / 4)
+                            .clipped()
+                        
+                        
+                        VStack(alignment: .leading) {
+                            Text("\(product.name ?? "N/A")")
+                                .font(.system(size: 18, weight: .bold))
+                                .lineLimit(1)
+                            
+                            Text("\(product.price, specifier: "%.0f")$")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(Color("MyColor"))
+                            
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+                .foregroundColor(.black)
+                .padding(10)
+                .background(.white)
+                .cornerRadius(20)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(selected ? .black : .clear)
+                }
             }
             
             HStack {
+                Spacer()
+                
                 Button {
-                    selected.toggle()
-                } label: {
-                    Image(systemName: selected ? "checkmark.square" : "square")
-                        .font(.title2)
-                }
-                
-                product.image?
-                //            Image("Nike")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: UIScreen.screenWidth / 4)
-                    .scaledToFill()
-                    .frame(width: UIScreen.screenWidth / 4, height: UIScreen.screenWidth / 4)
-                    .clipped()
-                
-                VStack(alignment: .leading) {
-                    Text("\(product.name ?? "N/A")")
-                        .lineLimit(1)
-                    
-                    Text("\(product.price, specifier: "%.0f")$")
-                        .font(.system(size: 20))
-                        .foregroundColor(Color("MyColor"))
-                    
-                    
-                    Stepper(value: $quantity, in: 1...10) {
-                        Text("Quantity: \(quantity)")
+                    if quantity > 1 {
+                        quantity -= 1
                     }
+                } label: {
+                    Image(systemName: "minus")
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.screenWidth / 15, height: UIScreen.screenWidth / 15)
+                        .background(quantity > 1 ? Color("MyColor") : .clear)
+                        .cornerRadius(90)
+                        .overlay {
+                            Circle()
+                                .stroke(quantity > 1  ? .clear : Color("MyColor"))
+                        }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                
+                Text("\(quantity)")
+                    .padding(.horizontal, 10)
+                
+                Button {
+                    if quantity < 10 {
+                        quantity += 1
+                    }
+                } label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.screenWidth / 15, height: UIScreen.screenWidth / 15)
+                        .background(quantity < 10 ? Color("MyColor") : .clear)
+                        .cornerRadius(90)
+                        .overlay {
+                            Circle()
+                                .stroke(quantity < 10  ? .clear : Color("MyColor"))
+                        }
+                }
             }
+            .padding()
         }
-        .foregroundColor(.black)
-        .padding(10)
-        .background(.white)
         
     }
 }

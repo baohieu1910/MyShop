@@ -11,12 +11,10 @@ struct CartView: View {
     @ObservedObject var userManager = UserManager.shared
     
     var body: some View {
-        NavigationView {
-            if let user = userManager.currentUser {
-                MyCartView(user: user, cartCount: user.cartCount)
-            } else {
-                LoginView()
-            }
+        if let user = userManager.currentUser {
+            MyCartView(user: user, cartCount: user.cartCount)
+        } else {
+            LoginView()
         }
     }
 }

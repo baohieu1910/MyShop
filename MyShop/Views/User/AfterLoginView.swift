@@ -117,7 +117,7 @@ struct AfterLoginView: View {
                 } label: {
                     Text("Log Out")
                         .padding(.vertical)
-                        .padding(.horizontal, UIScreen.screenWidth / 3)
+                        .frame(width: UIScreen.screenWidth / 3)
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                         .background(Color("MyColor"))

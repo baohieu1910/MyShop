@@ -17,7 +17,9 @@ struct OrderHistoryView: View {
                     OrderHistoryRowView(product: product)
                 }
             }
+            .frame(maxWidth: .infinity)
         }
+        .padding(.horizontal, 10)
         .background(Color("LightGray"))
         .navigationTitle("Order history")
         .navigationBarTitleDisplayMode(.inline)
